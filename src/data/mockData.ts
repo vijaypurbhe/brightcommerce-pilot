@@ -281,7 +281,7 @@ export interface Agent {
   impact: string;
   icon: string;
   audience: "Customer" | "Employee";
-  category: "Service" | "Sales" | "Network" | "Operations";
+  category: "Forged Fiber" | "Sales" | "Network" | "Operations";
 }
 
 export const agents: Agent[] = [
@@ -290,7 +290,7 @@ export const agents: Agent[] = [
     name: "Network Operations Agent",
     status: "acting",
     audience: "Employee",
-    category: "Network",
+    category: "Forged Fiber",
     insight: "Monitoring 4,200+ network elements across backbone, metro rings, and last-mile hubs. Correlated 18 alarms into 3 actionable incidents and pre-dispatched 2 field crews.",
     confidence: 96,
     action: "Auto-resolve low-severity alarms and escalate outage clusters to NetOps with route-impact analysis",
@@ -302,7 +302,7 @@ export const agents: Agent[] = [
     name: "Sales Coach Agent",
     status: "alert",
     audience: "Employee",
-    category: "Sales",
+    category: "Forged Fiber",
     insight: "42 partner accounts flagged as at-risk this quarter. 18 deals worth $340M are high win-likelihood; 8 need executive sponsorship to close before quarter-end.",
     confidence: 91,
     action: "Trigger meeting-prep briefs + outreach cadence for top 8 at-risk and high-win accounts",
@@ -314,7 +314,7 @@ export const agents: Agent[] = [
     name: "Wholesale Partner Support Agent",
     status: "monitoring",
     audience: "Customer",
-    category: "Service",
+    category: "Forged Fiber",
     insight: "Handling 2,840 partner voice + chat sessions today. Auto-resolving onboarding, capacity, SLA, and billing inquiries. Partner onboarding cycle shortened from 14 to 9 days.",
     confidence: 93,
     action: "Expand deflection to capacity-upgrade quotes and SLA uplift requests",
@@ -326,7 +326,7 @@ export const agents: Agent[] = [
     name: "Fiber Enablement Agent",
     status: "acting",
     audience: "Customer",
-    category: "Operations",
+    category: "Forged Fiber",
     insight: "Guiding property owners, developers, and municipalities through fiber-build eligibility. 2,160 eligibility checks completed this month; 34% uplift in qualified requests.",
     confidence: 89,
     action: "Pre-qualify multi-family and municipal sites and schedule site surveys automatically",
