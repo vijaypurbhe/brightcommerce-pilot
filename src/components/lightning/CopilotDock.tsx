@@ -16,18 +16,50 @@ const CopilotDock = ({ open, onClose, initialAgentId = "command" }: Props) => {
     return "sales";
   }, [location.pathname]);
 
-  const contextualPrompts = console_ === "service"
-    ? [
-        "Summarize cases breaching SLA in the next 2 hours",
-        "Draft a partner reply for the Region 7 outage",
-        "Which accounts have repeat performance incidents this week?",
-      ]
-    : [
-        "Show my top at-risk partner accounts this quarter",
-        "Pipeline forecast vs quota for the Midwest region",
-        "Suggest next best action for City of Austin expansion",
-      ];
   const [agentId, setAgentId] = useState<string>(initialAgentId);
+
+  const agentPrompts: Record<string, string[]> = {
+    networkOps: [
+      "What is causing the Region 7 fiber degradation right now?",
+      "Show open outages and estimated restoration times",
+      "Which routes have the highest packet loss this week?",
+    ],
+    salesCoach: [
+      "Which fiber build opportunities are at risk this quarter?",
+      "Coach me on the City of Austin expansion deal",
+      "Pipeline forecast vs quota for the Midwest market",
+    ],
+    partnerSupport: [
+      "Summarize wholesale partner cases breaching SLA today",
+      "Draft a partner update for the Region 7 outage",
+      "Which ISP partners have repeat provisioning issues?",
+    ],
+    fiberEnablement: [
+      "What is blocking turn-up for the Lakeview MDU build?",
+      "Show permits and ROW approvals pending over 30 days",
+      "Which circuits are ready for service activation?",
+    ],
+    command: [
+      "Give me a cross-domain health snapshot of the network business",
+      "Where is revenue exposed by network performance risk?",
+      "What should my team focus on today?",
+    ],
+  };
+
+  const contextualPrompts =
+    agentPrompts[agentId] ??
+    (console_ === "service"
+      ? [
+          "Summarize cases breaching SLA in the next 2 hours",
+          "Draft a partner reply for the Region 7 outage",
+          "Which accounts have repeat performance incidents this week?",
+        ]
+      : [
+          "Show my top at-risk partner accounts this quarter",
+          "Pipeline forecast vs quota for the Midwest region",
+          "Suggest next best action for City of Austin expansion",
+        ]);
+
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [streaming, setStreaming] = useState(false);
