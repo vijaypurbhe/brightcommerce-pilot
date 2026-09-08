@@ -281,7 +281,7 @@ export interface Agent {
   impact: string;
   icon: string;
   audience: "Customer" | "Employee";
-  category: "Forged Fiber" | "Sales" | "Network" | "Operations";
+  category: "Forged Fiber";
 }
 
 export const agents: Agent[] = [
