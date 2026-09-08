@@ -53,7 +53,6 @@ const AgenticDesktop = () => {
     return () => clearInterval(t);
   }, []);
 
-  useEffect(() => { setMessages([]); }, [activeAgentId]);
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages]);
@@ -216,7 +215,7 @@ const AgenticDesktop = () => {
           </div>
           <div className="space-y-1.5">
             {agents.map((a) => (
-              <button key={a.id} onClick={() => { setActiveAgentId(a.id); setDockAgentId(a.id); setDockOpen(true); }}
+              <button key={a.id} onClick={() => { setActiveAgentId(a.id); setMessages([]); setDockAgentId(a.id); setDockOpen(true); }}
                 className={`w-full text-left rounded border p-2.5 transition ${activeAgentId === a.id ? "bg-primary/5 border-primary/40" : "bg-card border-border hover:bg-secondary/60"}`}>
                 <div className="flex items-start gap-2">
                   <div className="size-9 rounded bg-primary/10 flex items-center justify-center text-lg shrink-0">{a.icon}</div>
