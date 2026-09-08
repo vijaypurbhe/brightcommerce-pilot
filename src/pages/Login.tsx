@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, Eye, EyeOff } from "lucide-react";
 import { ALLOWED_DEMO_DOMAIN, appendLoginAuditEntry, isAllowedDemoEmail, normalizeEmail } from "@/lib/demoAccess";
-import syscoLogo from "@/assets/sysco-logo.png";
+import forgedFiberLogo from "@/assets/forged-fiber-logo.png";
 
 interface LoginProps {
   onAuthenticated: (email: string) => void;
@@ -27,12 +27,12 @@ const Login = ({ onAuthenticated }: LoginProps) => {
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden">
       {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(212,45%,8%)] via-[hsl(209,55%,14%)] to-[hsl(212,50%,6%)]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(222,28%,8%)] via-[hsl(197,55%,14%)] to-[hsl(222,28%,6%)]" />
 
-      {/* Floating orbs (Sysco navy + green) */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[hsl(209,100%,45%,0.20)] rounded-full blur-[120px] animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[hsl(86,70%,45%,0.16)] rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "2s" }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[hsl(209,90%,40%,0.10)] rounded-full blur-[140px]" />
+      {/* Floating orbs (Forged Fiber 37 blue + orange) */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[hsl(197,100%,45%,0.20)] rounded-full blur-[120px] animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[hsl(17,100%,45%,0.16)] rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "2s" }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[hsl(197,90%,40%,0.10)] rounded-full blur-[140px]" />
 
       {/* Grid pattern */}
       <div
@@ -48,13 +48,13 @@ const Login = ({ onAuthenticated }: LoginProps) => {
         {/* Logo area */}
         <div className="flex flex-col items-center mb-8">
           <div className="relative">
-            <div className="absolute inset-0 bg-[hsl(209,100%,55%,0.5)] rounded-2xl blur-xl" />
-            <div className="relative flex items-center justify-center w-16 h-16 rounded-2xl bg-white shadow-lg shadow-[hsl(209,100%,40%,0.35)] overflow-hidden">
-              <img src={syscoLogo} alt="Sysco" className="h-10 w-10 object-contain" />
+            <div className="absolute inset-0 bg-[hsl(197,100%,55%,0.5)] rounded-2xl blur-xl" />
+            <div className="relative flex items-center justify-center w-20 h-20 rounded-2xl bg-white shadow-lg shadow-[hsl(197,100%,40%,0.35)] overflow-hidden">
+              <img src={forgedFiberLogo} alt="Forged Fiber 37" className="h-12 w-12 object-contain" />
             </div>
           </div>
-          <h1 className="mt-5 text-3xl font-bold tracking-tight text-white">Sysco Sales + Service Cloud</h1>
-          <p className="mt-2 text-sm text-[hsl(215,20%,65%)]">Agentforce-powered foodservice operations</p>
+          <h1 className="mt-5 text-3xl font-bold tracking-tight text-white">Forged Fiber 37</h1>
+          <p className="mt-2 text-sm text-[hsl(215,20%,65%)]">Sales + Service Cloud powered by Agentforce</p>
         </div>
 
         {/* Glass card */}
@@ -77,7 +77,7 @@ const Login = ({ onAuthenticated }: LoginProps) => {
                     setEmail(e.target.value);
                     setError("");
                   }}
-                  className="w-full h-12 px-4 rounded-xl border border-white/[0.08] bg-white/[0.04] text-white placeholder:text-[hsl(215,20%,38%)] text-sm focus:outline-none focus:border-[hsl(209,100%,55%,0.6)] focus:ring-1 focus:ring-[hsl(209,100%,55%,0.4)] transition-colors"
+                  className="w-full h-12 px-4 rounded-xl border border-white/[0.08] bg-white/[0.04] text-white placeholder:text-[hsl(215,20%,38%)] text-sm focus:outline-none focus:border-[hsl(197,100%,55%,0.6)] focus:ring-1 focus:ring-[hsl(197,100%,55%,0.4)] transition-colors"
                 />
               </div>
 
@@ -92,7 +92,7 @@ const Login = ({ onAuthenticated }: LoginProps) => {
                     placeholder="••••••••"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full h-12 pl-4 pr-11 rounded-xl border border-white/[0.08] bg-white/[0.04] text-white placeholder:text-[hsl(215,20%,38%)] text-sm focus:outline-none focus:border-[hsl(209,100%,55%,0.6)] focus:ring-1 focus:ring-[hsl(209,100%,55%,0.4)] transition-colors"
+                    className="w-full h-12 pl-4 pr-11 rounded-xl border border-white/[0.08] bg-white/[0.04] text-white placeholder:text-[hsl(215,20%,38%)] text-sm focus:outline-none focus:border-[hsl(197,100%,55%,0.6)] focus:ring-1 focus:ring-[hsl(197,100%,55%,0.4)] transition-colors"
                   />
                   <button
                     type="button"
@@ -113,7 +113,7 @@ const Login = ({ onAuthenticated }: LoginProps) => {
               <button
                 type="submit"
                 disabled={loading}
-                className="group w-full h-12 rounded-xl bg-gradient-to-r from-[hsl(209,100%,38%)] to-[hsl(209,100%,50%)] hover:from-[hsl(209,100%,34%)] hover:to-[hsl(209,100%,46%)] text-white font-semibold text-sm shadow-lg shadow-[hsl(209,100%,45%,0.3)] transition-all duration-300 hover:shadow-xl hover:shadow-[hsl(209,100%,45%,0.4)] hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70"
+                className="group w-full h-12 rounded-xl bg-gradient-to-r from-[hsl(197,100%,38%)] to-[hsl(197,100%,50%)] hover:from-[hsl(197,100%,34%)] hover:to-[hsl(197,100%,46%)] text-white font-semibold text-sm shadow-lg shadow-[hsl(197,100%,45%,0.3)] transition-all duration-300 hover:shadow-xl hover:shadow-[hsl(197,100%,45%,0.4)] hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70"
               >
                 {loading ? (
                   <span className="flex items-center justify-center gap-2">
@@ -130,12 +130,12 @@ const Login = ({ onAuthenticated }: LoginProps) => {
 
               <div className="flex items-center justify-between text-xs pt-1">
                 <label className="flex items-center gap-2 text-[hsl(215,20%,60%)] cursor-pointer">
-                  <input type="checkbox" className="accent-[hsl(209,100%,55%)]" />
+                  <input type="checkbox" className="accent-[hsl(197,100%,55%)]" />
                   Remember me
                 </label>
                 <button
                   type="button"
-                  className="text-[hsl(209,90%,68%)] hover:text-[hsl(209,90%,78%)] transition-colors"
+                  className="text-[hsl(197,90%,68%)] hover:text-[hsl(197,90%,78%)] transition-colors"
                 >
                   Forgot password?
                 </button>

@@ -28,14 +28,14 @@ const AccountRecord = () => {
           </>
         }
         fields={[
-          { label: "Type", value: account.segment },
-          { label: "Region", value: account.region },
+          { label: "Type", value: account.type },
+          { label: "Market", value: account.market },
           { label: "Account Owner", value: account.csm },
-          { label: "YTD Spend", value: `$${(account.ytdSpend / 1_000_000).toFixed(2)}M` },
-          { label: "Weekly Spend", value: `$${account.weeklySpend.toLocaleString()}` },
+          { label: "YTD Revenue", value: `$${(account.ytdRevenue / 1_000_000).toFixed(2)}M` },
+          { label: "MRR", value: `$${account.mrr.toLocaleString()}` },
           { label: "Health Score", value: <span className={account.healthScore >= 80 ? "text-success" : account.healthScore >= 65 ? "text-warning" : "text-destructive"}>{account.healthScore} / 100</span> },
           { label: "Churn Risk", value: <span className="capitalize">{account.churnRisk}</span> },
-          { label: "Last Order", value: `${account.lastOrderDays}d ago` },
+          { label: "Last Ticket", value: `${account.lastTicketDays}d ago` },
         ]}
       />
 
@@ -63,12 +63,12 @@ const AccountRecord = () => {
                   { label: "Account Name", value: account.name },
                   { label: "Parent Account", value: "—" },
                   { label: "Account Number", value: account.id },
-                  { label: "Type", value: account.segment },
-                  { label: "Industry", value: "Foodservice — Restaurants" },
-                  { label: "Phone", value: "+1 (212) 555-0140" },
+                  { label: "Type", value: account.type },
+                  { label: "Industry", value: "Telecommunications — Fiber Wholesale" },
+                  { label: "Phone", value: "+1 (512) 555-0140" },
                   { label: "Website", value: "www.example.com" },
-                  { label: "Billing Address", value: `${account.region}, USA` },
-                  { label: "Annual Revenue", value: `$${(account.ytdSpend * 1.4 / 1_000_000).toFixed(1)}M` },
+                  { label: "Billing Address", value: `${account.market}, USA` },
+                  { label: "Annual Revenue", value: `$${(account.ytdRevenue * 1.4 / 1_000_000).toFixed(1)}M` },
                   { label: "Employees", value: "240" },
                   { label: "Rating", value: account.healthScore >= 80 ? "Hot" : account.healthScore >= 65 ? "Warm" : "Cold" },
                   { label: "Owner", value: account.csm },
@@ -113,9 +113,9 @@ const AccountRecord = () => {
                   <table className="slds-table">
                     <thead><tr><th>Name</th><th>Title</th><th>Email</th><th>Phone</th></tr></thead>
                     <tbody>
-                      <tr><td><span className="text-primary">Maria Costa</span></td><td>Executive Chef</td><td>maria@example.com</td><td>(212) 555-0141</td></tr>
-                      <tr><td><span className="text-primary">James Wu</span></td><td>Director of Procurement</td><td>jwu@example.com</td><td>(212) 555-0142</td></tr>
-                      <tr><td><span className="text-primary">Linda Park</span></td><td>F&amp;B Operations Manager</td><td>lpark@example.com</td><td>(212) 555-0143</td></tr>
+                      <tr><td><span className="text-primary">Maria Costa</span></td><td>Director of Network Engineering</td><td>maria.costa@austintexas.gov</td><td>(512) 555-0141</td></tr>
+                      <tr><td><span className="text-primary">James Wu</span></td><td>Chief Technology Officer</td><td>j.wu@summitdatacenters.com</td><td>(602) 555-0142</td></tr>
+                      <tr><td><span className="text-primary">Linda Park</span></td><td>VP of Development</td><td>l.park@atlasmultifamily.com</td><td>(303) 555-0143</td></tr>
                     </tbody>
                   </table>
                 </Card>
@@ -123,8 +123,8 @@ const AccountRecord = () => {
             )}
             {tab === "News" && (
               <div className="p-3 space-y-2 text-[12.5px] text-muted-foreground">
-                <div className="border-l-2 border-primary pl-3"><span className="text-foreground font-medium">Nation's Restaurant News:</span> {account.name.split(" — ")[0]} announces 6 new locations in Q1.</div>
-                <div className="border-l-2 border-primary pl-3"><span className="text-foreground font-medium">Foodservice Daily:</span> Plant-based menu expansion underway across chain.</div>
+                <div className="border-l-2 border-primary pl-3"><span className="text-foreground font-medium">Telecom Industry Brief:</span> {account.name.split(" — ")[0]} expands fiber footprint by 12% in Q1.</div>
+                <div className="border-l-2 border-primary pl-3"><span className="text-foreground font-medium">Network World:</span> Open-access wholesale transport demand accelerates across Midwest markets.</div>
               </div>
             )}
           </div>

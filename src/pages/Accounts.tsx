@@ -8,11 +8,11 @@ const listViews = ["All Active Accounts", "My Accounts", "At-Risk Accounts", "To
 const Accounts = () => {
   const [view, setView] = useState(listViews[0]);
   const [q, setQ] = useState("");
-  const [sortBy, setSortBy] = useState<keyof typeof topAccounts[0]>("ytdSpend");
+  const [sortBy, setSortBy] = useState<keyof typeof topAccounts[0]>("ytdRevenue");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
 
   const rows = topAccounts
-    .filter((a) => a.name.toLowerCase().includes(q.toLowerCase()) || a.segment.toLowerCase().includes(q.toLowerCase()))
+    .filter((a) => a.name.toLowerCase().includes(q.toLowerCase()) || a.type.toLowerCase().includes(q.toLowerCase()))
     .sort((a, b) => {
       const av = a[sortBy] as number | string; const bv = b[sortBy] as number | string;
       if (av === bv) return 0;
@@ -62,11 +62,11 @@ const Accounts = () => {
             <thead>
               <tr>
                 <th><button onClick={() => toggleSort("name")} className="uppercase">Account Name {sortBy === "name" && (sortDir === "asc" ? "▲" : "▼")}</button></th>
-                <th>Segment</th>
-                <th>Region</th>
+                <th>Type</th>
+                <th>Market</th>
                 <th>Account Owner</th>
-                <th className="text-right"><button onClick={() => toggleSort("weeklySpend")} className="uppercase">Weekly Spend {sortBy === "weeklySpend" && (sortDir === "asc" ? "▲" : "▼")}</button></th>
-                <th className="text-right"><button onClick={() => toggleSort("ytdSpend")} className="uppercase">YTD Spend {sortBy === "ytdSpend" && (sortDir === "asc" ? "▲" : "▼")}</button></th>
+                <th className="text-right"><button onClick={() => toggleSort("mrr")} className="uppercase">MRR {sortBy === "mrr" && (sortDir === "asc" ? "▲" : "▼")}</button></th>
+                <th className="text-right"><button onClick={() => toggleSort("ytdRevenue")} className="uppercase">YTD Revenue {sortBy === "ytdRevenue" && (sortDir === "asc" ? "▲" : "▼")}</button></th>
                 <th className="text-center">Health</th>
                 <th className="text-center">Open Cases</th>
               </tr>
@@ -78,11 +78,11 @@ const Accounts = () => {
                     <Link to={`/accounts/${a.id}`} className="text-primary font-medium hover:underline">{a.name}</Link>
                     <div className="text-[10.5px] text-muted-foreground font-mono">{a.id}</div>
                   </td>
-                  <td>{a.segment}</td>
-                  <td>{a.region}</td>
+                  <td>{a.type}</td>
+                  <td>{a.market}</td>
                   <td>{a.csm}</td>
-                  <td className="text-right font-mono">${a.weeklySpend.toLocaleString()}</td>
-                  <td className="text-right font-mono">${(a.ytdSpend / 1_000_000).toFixed(2)}M</td>
+                  <td className="text-right font-mono">${a.mrr.toLocaleString()}</td>
+                  <td className="text-right font-mono">${(a.ytdRevenue / 1_000_000).toFixed(2)}M</td>
                   <td className="text-center">
                     <span className={`slds-pill ${a.healthScore >= 80 ? "text-success bg-success/10 border-success/30" : a.healthScore >= 65 ? "text-warning bg-warning/10 border-warning/30" : "text-destructive bg-destructive/10 border-destructive/30"}`}>{a.healthScore}</span>
                   </td>
