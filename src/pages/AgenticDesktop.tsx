@@ -10,6 +10,7 @@ import {
 import { toast } from "sonner";
 import Login from "@/pages/Login";
 import ChatMessage from "@/components/ChatMessage";
+import CopilotDock from "@/components/lightning/CopilotDock";
 import forgedFiberLogo from "@/assets/forged-fiber-logo.png";
 import {
   getAuthenticatedEmail, setAuthenticatedEmail, clearAuthenticatedEmail,
@@ -38,6 +39,8 @@ const AgenticDesktop = () => {
   const [email, setEmail] = useState<string | null>(() => getAuthenticatedEmail());
   const [now, setNow] = useState<Date>(new Date());
   const [activeAgentId, setActiveAgentId] = useState<string>("networkOps");
+  const [dockOpen, setDockOpen] = useState(false);
+  const [dockAgentId, setDockAgentId] = useState<string>("networkOps");
 
   // chat
   const [messages, setMessages] = useState<Msg[]>([]);
@@ -209,7 +212,7 @@ const AgenticDesktop = () => {
           </div>
           <div className="space-y-1.5">
             {agents.map((a) => (
-              <button key={a.id} onClick={() => setActiveAgentId(a.id)}
+              <button key={a.id} onClick={() => { setActiveAgentId(a.id); setDockAgentId(a.id); setDockOpen(true); }}
                 className={`w-full text-left rounded border p-2.5 transition ${activeAgentId === a.id ? "bg-primary/5 border-primary/40" : "bg-card border-border hover:bg-secondary/60"}`}>
                 <div className="flex items-start gap-2">
                   <div className="size-9 rounded bg-primary/10 flex items-center justify-center text-lg shrink-0">{a.icon}</div>
@@ -420,6 +423,8 @@ const AgenticDesktop = () => {
         </div>
 
       </section>
+
+      <CopilotDock open={dockOpen} onClose={() => setDockOpen(false)} initialAgentId={dockAgentId} />
     </div>
   );
 };
