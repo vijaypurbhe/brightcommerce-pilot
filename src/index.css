@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Aptos is shipped by Microsoft 365; fall back gracefully on machines without it. */
+
+/* Sysco-branded Salesforce Lightning theme */
+@layer base {
+  :root {
+    --background: 210 20% 96%;          /* page bg */
+    --foreground: 215 25% 14%;          /* near-black slate */
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 14%;
+
+    /* Sysco navy primary */
+    --primary: 209 100% 30%;            /* #00549A */
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 209 100% 22%;       /* #003C71 */
+    --primary-bg: 209 100% 96%;         /* very light navy tint */
+
+    --secondary: 210 20% 94%;
+    --secondary-foreground: 215 25% 25%;
+
+    --muted: 210 20% 94%;
+    --muted-foreground: 215 12% 42%;
+
+    --accent: 86 70% 43%;               /* Sysco fresh green ~#76BC21 */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 354 75% 42%;         /* Sysco red ~#C8102E */
+    --destructive-foreground: 0 0% 100%;
+
+    --warning: 35 100% 50%;             /* amber */
+    --warning-foreground: 0 0% 9%;
+
+    --success: 142 55% 33%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 210 16% 88%;
+    --input: 210 16% 86%;
+    --ring: 209 100% 30%;
+
+    --radius: 0.25rem;
+
+    --chart-1: 209 100% 30%;
+    --chart-2: 86 70% 43%;
+    --chart-3: 35 100% 50%;
+    --chart-4: 215 25% 35%;
+    --chart-5: 354 75% 42%;
+
+    --header-bg: 209 100% 22%;          /* darker Sysco navy header */
+    --header-fg: 0 0% 100%;
+    --subnav-bg: 0 0% 100%;
+    --subnav-border: 210 16% 88%;
+    --rail-bg: 210 20% 97%;
+  }
+
+  .dark {
+    --background: 215 28% 10%;
+    --foreground: 210 20% 96%;
+    --card: 215 28% 14%;
+    --card-foreground: 210 20% 96%;
+    --popover: 215 28% 14%;
+    --popover-foreground: 210 20% 96%;
+    --primary: 209 90% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 209 100% 35%;
+    --primary-bg: 209 60% 18%;
+    --secondary: 215 20% 20%;
+    --secondary-foreground: 210 20% 92%;
+    --muted: 215 20% 20%;
+    --muted-foreground: 215 12% 65%;
+    --accent: 86 60% 50%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 354 80% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --warning: 35 100% 55%;
+    --warning-foreground: 0 0% 9%;
+    --success: 142 49% 50%;
+    --success-foreground: 0 0% 100%;
+    --border: 215 20% 24%;
+    --input: 215 20% 24%;
+    --ring: 209 90% 55%;
+    --header-bg: 215 32% 8%;
+    --header-fg: 210 20% 96%;
+    --subnav-bg: 215 28% 14%;
+    --subnav-border: 215 20% 24%;
+    --rail-bg: 215 28% 12%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html, body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Aptos', 'Aptos Display', 'Segoe UI Variable', 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 14px;
+  }
+}
+
+@layer components {
+  .slds-card {
+    @apply bg-card border border-border rounded-[4px];
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.05);
+  }
+  .slds-card-header {
+    @apply flex items-center justify-between px-3 py-2 border-b border-border;
+  }
+  .slds-pill {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 text-[12px] rounded-[12px] bg-secondary text-foreground border border-border;
+  }
+  .slds-button {
+    @apply inline-flex items-center gap-1.5 h-8 px-3 text-[13px] rounded-[4px] border border-border bg-card text-primary hover:bg-secondary transition-colors;
+  }
+  .slds-button-brand {
+    @apply inline-flex items-center gap-1.5 h-8 px-3 text-[13px] rounded-[4px] bg-primary text-primary-foreground border border-primary hover:opacity-90 transition-opacity;
+  }
+  .slds-button-accent {
+    @apply inline-flex items-center gap-1.5 h-8 px-3 text-[13px] rounded-[4px] bg-accent text-accent-foreground border border-accent hover:opacity-90 transition-opacity;
+  }
+  .slds-icon-btn {
+    @apply inline-flex items-center justify-center w-8 h-8 rounded text-[hsl(var(--header-fg))] hover:bg-white/10 transition-colors;
+  }
+  .slds-tab {
+    @apply inline-flex items-center gap-1.5 px-3 h-9 text-[14px] font-medium text-foreground/80 hover:text-foreground border-b-2 border-transparent transition-colors;
+  }
+  .slds-tab[data-active="true"] {
+    @apply text-primary border-primary;
+  }
+  .slds-table {
+    @apply w-full text-[13.5px];
+  }
+  .slds-table thead th {
+    @apply text-left font-semibold text-foreground/70 bg-secondary/60 px-2 py-2 border-b border-border text-[12px] uppercase tracking-wide;
+  }
+  .slds-table tbody td {
+    @apply px-2 py-2 border-b border-border align-middle;
+  }
+  .slds-table tbody tr:hover { @apply bg-secondary/40 cursor-pointer; }
+}
+
+@layer utilities {
+  @keyframes slideUp { from { opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
+  .animate-slide-up { animation: slideUp 0.25s ease-out forwards; }
+  @keyframes fadeIn { from { opacity:0;} to { opacity:1;} }
+  .animate-fade-in { animation: fadeIn 0.2s ease-out forwards; }
+}
