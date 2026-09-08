@@ -1,73 +1,264 @@
-# Welcome to your Lovable project
+# Forged Fiber Contact Center
 
-## Project info
+"Agentic Commerce Intelligence Platform"
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Objective:
+Demonstrate a future-state Salesforce Commerce Cloud + GA4 ecosystem powered by AI agents that monitor, analyze, recommend, and execute commerce optimizations in real time.
 
-## How can I edit this code?
+Environment Setup
 
-There are several ways of editing your application.
+Simulate:
 
-**Use Lovable**
+Salesforce Commerce Cloud storefront
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Salesforce Data Cloud unified customer graph
 
-Changes made via Lovable will be committed automatically to this repo.
+Google Analytics 4 event stream
 
-**Use your preferred IDE**
+BigQuery behavioral warehouse
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Marketing Cloud activation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+CRM integration
 
-Follow these steps:
+Create realistic mock datasets:
+
+2M customers
+
+150K SKUs
+
+18 months of transaction data
+
+Multi-channel attribution data
+
+Paid, organic, social traffic sources
+
+Core Demo Components
+1. Executive AI Command Center
+
+Dashboard Sections:
+
+Revenue Overview
+
+Conversion Rate Trend
+
+AOV Trend
+
+Channel Performance
+
+Segment Profitability
+
+Customer Lifetime Value
+
+Cart Abandonment
+
+Inventory Velocity
+
+Add:
+
+Conversational AI input box
+
+Natural language queries
+
+Scenario simulation panel
+
+Forecasting panel
+
+Example prompt capability:
+“Why did revenue decline last month?”
+System response:
+
+Root cause analysis
+
+Segment breakdown
+
+Channel attribution
+
+Predicted impact
+
+Recommended action
+
+2. Agent Layer Visualization
+
+Create visual cards for each AI agent:
+
+Revenue Agent
+Personalization Agent
+Merchandising Agent
+Retention Agent
+Marketing Allocation Agent
+
+Each card displays:
+
+Status (Monitoring / Alert / Acting)
+
+Insight summary
+
+Confidence score
+
+Recommended action
+
+Estimated revenue impact
+
+Execute button (simulate approval workflow)
+
+3. Closed-Loop Optimization Simulation
+
+Scenario 1:
+Conversion rate drops 3% on mobile.
+
+System:
+
+Detects anomaly
+
+Diagnoses PDP load time issue
+
+Recommends image compression
+
+Predicts 1.5% uplift
+
+Simulates execution
+
+Shows incremental revenue recovery
+
+Scenario 2:
+High-value segment churn risk increases.
+
+System:
+
+Identifies LTV > $2,000 segment
+
+Recommends targeted loyalty offer
+
+Triggers journey simulation
+
+Shows projected retention lift
+
+4. Data Cloud Unified Profile View
+
+Create 360° customer profile:
+
+Identity resolution
+
+Purchase history
+
+Browsing events
+
+Marketing engagement
+
+Predicted LTV
+
+Churn probability
+
+Next best action
+
+Include:
+
+AI-generated summary narrative
+
+Cross-cloud activation simulation
+
+5. Attribution & Budget Optimization Agent
+
+Dashboard shows:
+
+Multi-touch attribution model
+
+ROAS by channel
+
+Budget allocation recommendations
+
+What-if slider to adjust spend
+
+Predicted incremental revenue
+
+6. Governance Layer
+
+Include:
+
+Human approval workflow simulation
+
+AI explainability panel
+
+Decision reasoning summary
+
+Data lineage visualization
+
+UI/UX Requirements
+
+Enterprise-grade design
+
+Dark and light modes
+
+Executive storytelling layout
+
+Real-time streaming effect for alerts
+
+Clean KPI tiles
+
+Agent interaction panel
+
+Scenario simulator controls
+
+Demo Narrative Flow
+
+Executive logs in
+
+AI highlights performance anomaly
+
+Executive asks natural language question
+
+AI provides root cause analysis
+
+Agent recommends action
+
+Executive approves
+
+System simulates revenue impact
+
+Dashboard updates in real time
+
+Technical Framing (Simulated)
+
+Salesforce Data Cloud as unified data model
+
+GA4 event ingestion
+
+BigQuery analytics layer
+
+Einstein predictive modeling
+
+Agentforce autonomous orchestration
+
+Final Deliverable
+
+Produce:
+
+Fully interactive UI prototype
+
+Multiple predefined scenarios
+
+Executive storytelling script
+
+Toggle between “Current State” and “Agentic Future State”
+
+This project was built with [Lovable](https://lovable.dev).
+
+## Build with Lovable
+
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/b035ea32-0fe7-455e-bd3c-9e41f76a2986).
+
+- **Ship faster**: describe what you want to build and Lovable handles the code.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+
+## Development
+
+Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
+git clone <this-repository-url>
+cd <repository-name>
 npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
