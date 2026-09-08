@@ -9,7 +9,7 @@ const statusDot: Record<string, string> = {
 };
 
 interface Props {
-  category?: "Service" | "Sales" | "Sysco Custom" | "All";
+  category?: "Service" | "Sales" | "Forged Fiber" | "All";
   title?: string;
   onChat?: (agentId: string) => void;
 }
@@ -44,10 +44,14 @@ const AgentsPanel = ({ category = "All", title = "Agentforce Agents", onChat }: 
                 </p>
                 <div className="flex items-center justify-between mt-1.5">
                   <span className="text-[11px] text-success font-mono">{a.impact}</span>
-                  {onChat && (
+                  {onChat ? (
                     <button onClick={() => onChat(a.id)} className="text-[11px] text-primary hover:underline flex items-center gap-0.5">
                       Chat <ChevronRight className="w-3 h-3" />
                     </button>
+                  ) : (
+                    <Link to="/agentic" className="text-[11px] text-primary hover:underline flex items-center gap-0.5">
+                      Details <ChevronRight className="w-3 h-3" />
+                    </Link>
                   )}
                 </div>
               </div>

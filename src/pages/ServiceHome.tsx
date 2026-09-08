@@ -75,9 +75,9 @@ const ServiceHome = () => {
       <Card title="Service Alerts" className="col-span-12 xl:col-span-8" action={<AlertTriangle className="w-4 h-4 text-warning" />}>
         <div className="space-y-2">
           {[
-            { t: "P1 — Walk-in cooler temperature alarm", b: "Hyatt Regency TX. Technician dispatched, ETA 35 min. Escalation queue: T. Nguyen.", to: "/cases/CASE-44188", chip: "P1" },
-            { t: "Storm-related delivery delays — Southeast", b: "12 trucks impacted by I-95 closure. Service Agent auto-sending revised ETAs to 84 customers.", to: "/cases", chip: "Voice" },
-            { t: "Repeat late delivery — Tap House Brewing", b: "2nd late delivery this week. Sales Coach Agent flagged as churn risk; CSM intervention queued.", to: "/cases/CASE-44158", chip: "P2" },
+            { t: "P1 — Backbone outage, Region 7 ring", b: "Redundant path holding. Field crew dispatched to splice closure 7-B. ETA to restore: 42 min. NOC lead: T. Nguyen.", to: "/cases/CASE-44188", chip: "P1" },
+            { t: "Storm-related performance degradation — Southeast", b: "18 circuits impacted by weather. Network Operations Agent auto-notifying affected partners and rolling truck rolls.", to: "/cases", chip: "Voice" },
+            { t: "Repeat provisioning delays — NorthStar Regional ISP", b: "2nd missed turn-up this quarter. Sales Coach Agent flagged as churn risk; CSM intervention queued.", to: "/cases/CASE-44158", chip: "P2" },
           ].map((a) => (
             <Link key={a.t} to={a.to} className="block border border-border rounded p-2.5 hover:bg-secondary/40">
               <div className="flex items-center gap-2">
@@ -93,12 +93,7 @@ const ServiceHome = () => {
 
       {/* Service Agents */}
       <div className="col-span-12 xl:col-span-4">
-        <AgentsPanel category="Service" title="Service Agentforce" />
-      </div>
-
-      {/* Industry / Sysco Custom agents */}
-      <div className="col-span-12 xl:col-span-8">
-        <AgentsPanel category="Sysco Custom" title="Sysco Industry Agents" />
+        <AgentsPanel category="Forged Fiber" title="Forged Fiber Agentforce" />
       </div>
 
       {/* Einstein recommendations */}
@@ -106,11 +101,11 @@ const ServiceHome = () => {
         <div className="space-y-2 text-[12.5px]">
           <div className="p-2 rounded bg-primary/5 border border-primary/20">
             <div className="text-[10.5px] uppercase text-primary font-semibold">Capacity</div>
-            Open Sysco Service Agent for credit requests ≤ $1,000 with photo evidence — +$2.8M annual cost-to-serve reduction.
+            Open Wholesale Partner Support Agent for circuit status and SLA inquiries ≤$10K impact — +$2.8M annual cost-to-serve reduction.
           </div>
           <div className="p-2 rounded bg-accent/5 border border-accent/20">
             <div className="text-[10.5px] uppercase text-accent font-semibold">CSAT</div>
-            Route Bluebird Diner inbound directly to M. Alvarez — 4 open cases and declining CSAT trend.
+            Route City of Austin inbound directly to M. Alvarez — 4 open cases and declining CSAT trend.
           </div>
           <div className="p-2 rounded bg-warning/5 border border-warning/20">
             <div className="text-[10.5px] uppercase text-warning font-semibold">SLA</div>

@@ -19,13 +19,13 @@ const CopilotDock = ({ open, onClose, initialAgentId = "command" }: Props) => {
   const contextualPrompts = console_ === "service"
     ? [
         "Summarize cases breaching SLA in the next 2 hours",
-        "Draft a customer reply for the cooler temperature P1",
-        "Which accounts have repeat late-delivery complaints this week?",
+        "Draft a partner reply for the Region 7 outage",
+        "Which accounts have repeat performance incidents this week?",
       ]
     : [
-        "Show my top at-risk accounts this quarter",
-        "Pipeline forecast vs quota for the Northeast region",
-        "Suggest next best action for Bluebird Diner",
+        "Show my top at-risk partner accounts this quarter",
+        "Pipeline forecast vs quota for the Midwest region",
+        "Suggest next best action for City of Austin expansion",
       ];
   const [agentId, setAgentId] = useState<string>(initialAgentId);
   const [messages, setMessages] = useState<Msg[]>([]);
@@ -97,7 +97,7 @@ const CopilotDock = ({ open, onClose, initialAgentId = "command" }: Props) => {
         {messages.length === 0 && (
           <div className="text-center text-muted-foreground text-[13px] py-8">
             <Bot className="w-8 h-8 mx-auto mb-3 text-primary" />
-            Hi — I'm {label}. Ask anything about your accounts, opportunities, cases, or operations.
+            Hi — I'm {label}. Ask anything about your accounts, opportunities, cases, or network operations.
             <div className="mt-4 flex flex-col gap-2 max-w-[280px] mx-auto">
               {contextualPrompts.map((q) => (
                 <button key={q} onClick={() => send(q)} className="text-left text-[12.5px] px-3 py-2 rounded border border-border hover:bg-secondary">{q}</button>

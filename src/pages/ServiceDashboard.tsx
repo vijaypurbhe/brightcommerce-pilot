@@ -19,7 +19,7 @@ const ServiceDashboard = () => {
       <div className="flex items-center justify-between">
         <div>
           <div className="text-[11px] text-muted-foreground">Dashboard</div>
-          <h1 className="text-[18px] font-bold">Service Operations — Sysco Customer Care</h1>
+          <h1 className="text-[18px] font-bold">Service Operations — Forged Fiber 37 Network Care</h1>
         </div>
         <div className="flex gap-1.5">
           <button className="slds-button">Refresh</button>
@@ -111,10 +111,7 @@ const ServiceDashboard = () => {
         </Card>
 
         <div className="col-span-12 lg:col-span-7">
-          <AgentsPanel category="Service" title="Service Agentforce" />
-        </div>
-        <div className="col-span-12 lg:col-span-5">
-          <AgentsPanel category="Sysco Custom" title="Sysco Industry Agents" />
+          <AgentsPanel category="Forged Fiber" title="Forged Fiber Agentforce" />
         </div>
       </div>
     </div>

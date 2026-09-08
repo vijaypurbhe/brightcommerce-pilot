@@ -6,25 +6,25 @@ import AgentsPanel from "@/components/lightning/AgentsPanel";
 import { topAccounts, opportunities, revenueChartData } from "@/data/mockData";
 
 const tasks = [
-  { id: 1, subject: "Follow up on Mercy Health proposal", due: "Today", related: "Mercy Health Network", priority: "High" },
-  { id: 2, subject: "Prep QBR deck — Cheesecake Factory", due: "Today", related: "Cheesecake Factory — NE", priority: "High" },
-  { id: 3, subject: "Send menu-cost analysis to Cosmo Casinos", due: "Tomorrow", related: "Cosmo Casinos — LV", priority: "Normal" },
-  { id: 4, subject: "Review at-risk save play — Bluebird Diner", due: "Tomorrow", related: "Bluebird Diner Group", priority: "High" },
-  { id: 5, subject: "Schedule kickoff — Brookline Public Schools", due: "Dec 12", related: "Brookline Public Schools", priority: "Normal" },
+  { id: 1, subject: "Follow up on Summit Data Centers turn-up", due: "Today", related: "Summit Data Centers — Phoenix", priority: "High" },
+  { id: 2, subject: "Prep QBR deck — City of Austin", due: "Today", related: "City of Austin — Smart City Fiber", priority: "High" },
+  { id: 3, subject: "Send ROW timeline to Atlas Multi-Family", due: "Tomorrow", related: "Atlas Multi-Family — Denver Portfolio", priority: "Normal" },
+  { id: 4, subject: "Review at-risk save play — NorthStar Regional ISP", due: "Tomorrow", related: "NorthStar Regional ISP", priority: "High" },
+  { id: 5, subject: "Schedule site survey — Riverwalk Corporate Campus", due: "Dec 12", related: "Riverwalk Corporate Campus", priority: "Normal" },
 ];
 
 const events = [
-  { id: 1, time: "10:30 AM", title: "Discovery call — Hyatt Regency TX", attendees: "D. Chen, K. Pham", duration: "30m" },
-  { id: 2, time: "1:00 PM",  title: "QBR — Cheesecake Factory NE", attendees: "M. Alvarez, J. Lee, R. Costa", duration: "60m" },
-  { id: 3, time: "3:30 PM",  title: "Pricing review — Cosmo Casinos", attendees: "M. Alvarez", duration: "30m" },
-  { id: 4, time: "4:30 PM",  title: "Sales Coach standup", attendees: "Team Northeast", duration: "15m" },
+  { id: 1, time: "10:30 AM", title: "Discovery call — Riverwalk Corporate Campus", attendees: "D. Chen, K. Pham", duration: "30m" },
+  { id: 2, time: "1:00 PM",  title: "QBR — City of Austin", attendees: "M. Alvarez, J. Lee, R. Costa", duration: "60m" },
+  { id: 3, time: "3:30 PM",  title: "Pricing review — Atlas Multi-Family", attendees: "M. Alvarez", duration: "30m" },
+  { id: 4, time: "4:30 PM",  title: "Sales Coach standup", attendees: "Team Southwest", duration: "15m" },
 ];
 
 const recent = [
-  { id: "ACC-1001", name: "Cheesecake Factory — Northeast", type: "Account" },
-  { id: "OPP-7821", name: "Cheesecake Factory Q1 Expansion", type: "Opportunity" },
-  { id: "ACC-1003", name: "Cosmo Casinos — Las Vegas", type: "Account" },
-  { id: "OPP-7855", name: "Mercy Health FY26 Renewal", type: "Opportunity" },
+  { id: "ACC-1001", name: "City of Austin — Smart City Fiber", type: "Account" },
+  { id: "OPP-7821", name: "City of Austin Expansion", type: "Opportunity" },
+  { id: "ACC-1003", name: "Atlas Multi-Family — Denver Portfolio", type: "Account" },
+  { id: "OPP-7855", name: "Summit Data Centers — Phoenix", type: "Opportunity" },
 ];
 
 const Index = () => {
@@ -97,9 +97,9 @@ const Index = () => {
       >
         <div className="space-y-2">
           {[
-            { title: "OPP-7855 needs your attention", body: "Mercy Health FY26 renewal — GPO compliance question from procurement. Respond before EOD.", action: "Open opportunity", to: "/opportunities/OPP-7855" },
+            { title: "OPP-7855 needs your attention", body: "Summit Data Centers turn-up — route diversity question from network engineering. Respond before EOD.", action: "Open opportunity", to: "/opportunities/OPP-7855" },
             { title: "Pipeline coverage at 3.2x", body: "Stronger than 2.4x last quarter. 38 deals worth $94M scored as high win-likelihood.", action: "View pipeline", to: "/opportunities" },
-            { title: "Bluebird Diner is at risk", body: "Inactive 11 days and 4 open cases. Save-play queued by Sales Coach.", action: "Review account", to: "/accounts/ACC-1005" },
+            { title: "NorthStar Regional ISP is at risk", body: "Inactive 11 days and 4 open cases. Save-play queued by Sales Coach.", action: "Review account", to: "/accounts/ACC-1012" },
           ].map((t) => (
             <Link key={t.title} to={t.to} className="block border border-border rounded p-2.5 hover:bg-secondary/40">
               <div className="text-[12.5px] font-semibold text-foreground">{t.title}</div>
@@ -194,10 +194,7 @@ const Index = () => {
 
       {/* Sales Agentforce */}
       <div className="col-span-12 lg:col-span-6">
-        <AgentsPanel category="Sales" title="Sales Agentforce" />
-      </div>
-      <div className="col-span-12 lg:col-span-6">
-        <AgentsPanel category="Sysco Custom" title="Sysco Industry Agents" />
+        <AgentsPanel category="Forged Fiber" title="Forged Fiber Agentforce" />
       </div>
     </div>
   );

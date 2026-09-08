@@ -2,57 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Aptos is shipped by Microsoft 365; fall back gracefully on machines without it. */
-
-/* Sysco-branded Salesforce Lightning theme */
+/* Forged Fiber 37 — Salesforce Lightning theme */
 @layer base {
   :root {
-    --background: 210 20% 96%;          /* page bg */
-    --foreground: 215 25% 14%;          /* near-black slate */
+    --background: 210 20% 98%;          /* #F8F9FA page bg */
+    --foreground: 222 26% 14%;          /* near-black forged steel */
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 14%;
+    --card-foreground: 222 26% 14%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 14%;
+    --popover-foreground: 222 26% 14%;
 
-    /* Sysco navy primary */
-    --primary: 209 100% 30%;            /* #00549A */
+    /* Forged Fiber 37 — fiber blue primary */
+    --primary: 197 100% 36%;            /* #0077B6 */
     --primary-foreground: 0 0% 100%;
-    --primary-dark: 209 100% 22%;       /* #003C71 */
-    --primary-bg: 209 100% 96%;         /* very light navy tint */
+    --primary-dark: 197 100% 26%;       /* #00577E */
+    --primary-bg: 197 100% 96%;         /* very light blue tint */
 
     --secondary: 210 20% 94%;
-    --secondary-foreground: 215 25% 25%;
+    --secondary-foreground: 222 26% 25%;
 
     --muted: 210 20% 94%;
     --muted-foreground: 215 12% 42%;
 
-    --accent: 86 70% 43%;               /* Sysco fresh green ~#76BC21 */
+    /* Forged Fiber 37 — forged orange accent */
+    --accent: 17 100% 60%;               /* #FF6B35 */
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 354 75% 42%;         /* Sysco red ~#C8102E */
+    --destructive: 354 75% 42%;         /* #C8102E */
     --destructive-foreground: 0 0% 100%;
 
-    --warning: 35 100% 50%;             /* amber */
+    --warning: 38 92% 50%;             /* amber */
     --warning-foreground: 0 0% 9%;
 
-    --success: 142 55% 33%;
+    --success: 145 55% 33%;
     --success-foreground: 0 0% 100%;
 
     --border: 210 16% 88%;
     --input: 210 16% 86%;
-    --ring: 209 100% 30%;
+    --ring: 197 100% 36%;
 
     --radius: 0.25rem;
 
-    --chart-1: 209 100% 30%;
-    --chart-2: 86 70% 43%;
-    --chart-3: 35 100% 50%;
-    --chart-4: 215 25% 35%;
+    --chart-1: 197 100% 36%;
+    --chart-2: 17 100% 60%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 222 26% 35%;
     --chart-5: 354 75% 42%;
 
-    --header-bg: 209 100% 22%;          /* darker Sysco navy header */
+    --header-bg: 222 26% 14%;          /* forged-steel dark header */
     --header-fg: 0 0% 100%;
     --subnav-bg: 0 0% 100%;
     --subnav-border: 210 16% 88%;
@@ -60,36 +59,36 @@
   }
 
   .dark {
-    --background: 215 28% 10%;
+    --background: 222 28% 9%;
     --foreground: 210 20% 96%;
-    --card: 215 28% 14%;
+    --card: 222 28% 13%;
     --card-foreground: 210 20% 96%;
-    --popover: 215 28% 14%;
+    --popover: 222 28% 13%;
     --popover-foreground: 210 20% 96%;
-    --primary: 209 90% 55%;
+    --primary: 197 76% 60%;
     --primary-foreground: 0 0% 100%;
-    --primary-dark: 209 100% 35%;
-    --primary-bg: 209 60% 18%;
-    --secondary: 215 20% 20%;
+    --primary-dark: 197 100% 45%;
+    --primary-bg: 197 60% 18%;
+    --secondary: 222 20% 20%;
     --secondary-foreground: 210 20% 92%;
-    --muted: 215 20% 20%;
+    --muted: 222 20% 20%;
     --muted-foreground: 215 12% 65%;
-    --accent: 86 60% 50%;
+    --accent: 17 100% 68%;
     --accent-foreground: 0 0% 9%;
     --destructive: 354 80% 55%;
     --destructive-foreground: 0 0% 100%;
-    --warning: 35 100% 55%;
+    --warning: 38 100% 55%;
     --warning-foreground: 0 0% 9%;
-    --success: 142 49% 50%;
+    --success: 145 49% 50%;
     --success-foreground: 0 0% 100%;
-    --border: 215 20% 24%;
-    --input: 215 20% 24%;
-    --ring: 209 90% 55%;
-    --header-bg: 215 32% 8%;
+    --border: 222 20% 24%;
+    --input: 222 20% 24%;
+    --ring: 197 76% 60%;
+    --header-bg: 222 32% 8%;
     --header-fg: 210 20% 96%;
-    --subnav-bg: 215 28% 14%;
-    --subnav-border: 215 20% 24%;
-    --rail-bg: 215 28% 12%;
+    --subnav-bg: 222 28% 13%;
+    --subnav-border: 222 20% 24%;
+    --rail-bg: 222 28% 11%;
   }
 }
 
@@ -97,7 +96,7 @@
   * { @apply border-border; }
   html, body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Aptos', 'Aptos Display', 'Segoe UI Variable', 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-family: 'Salesforce Sans', 'Aptos', 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     font-size: 14px;
   }
 }

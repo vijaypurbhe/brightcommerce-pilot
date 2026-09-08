@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const SalesDashboard = () => {
   const totalPipeline = pipelineByStage.reduce((s, g) => s + g.value, 0);
   const maxRev = Math.max(...revenueChartData.map((r) => r.revenue));
-  const salesKpis = ["Pipeline Value", "Win Rate", "Avg Weekly Order", "At-Risk ARR"];
+  const salesKpis = ["Build Pipeline", "Partner NRR", "AI Deflection", "At-Risk ARR"];
 
   // Top reps (synthetic)
   const reps = [
@@ -22,7 +22,7 @@ const SalesDashboard = () => {
       <div className="flex items-center justify-between">
         <div>
           <div className="text-[11px] text-muted-foreground">Dashboard</div>
-          <h1 className="text-[18px] font-bold">Sales Operations — Sysco North America</h1>
+          <h1 className="text-[18px] font-bold">Sales Operations — Forged Fiber 37</h1>
         </div>
         <div className="flex gap-1.5">
           <button className="slds-button">Refresh</button>
@@ -136,7 +136,7 @@ const SalesDashboard = () => {
         </Card>
 
         <div className="col-span-12 lg:col-span-4">
-          <AgentsPanel category="Sales" title="Sales Agentforce" />
+          <AgentsPanel category="Forged Fiber" title="Forged Fiber Agentforce" />
         </div>
 
         <Card title="Top Accounts (YTD)" className="col-span-12 lg:col-span-8">
@@ -157,10 +157,6 @@ const SalesDashboard = () => {
             </tbody>
           </table>
         </Card>
-
-        <div className="col-span-12 lg:col-span-4">
-          <AgentsPanel category="Sysco Custom" title="Sysco Industry Agents" />
-        </div>
       </div>
     </div>
   );

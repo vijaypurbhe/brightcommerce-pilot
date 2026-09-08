@@ -4,13 +4,13 @@ import {
   Sparkles, Bot, ShieldCheck, Activity, Workflow,
   Search, Bell, Settings, Zap, BookOpen,
   CheckCircle2, AlertTriangle, TrendingUp, TrendingDown, ArrowRight,
-  Truck, ShoppingCart, Receipt, Utensils, RefreshCw, Phone, MessageSquare,
+  Server, Cable, Handshake, Plug, RefreshCw, Phone, MessageSquare,
   Mail, Briefcase, Headphones, LogOut, FileText, Eye, Star, Send,
 } from "lucide-react";
 import { toast } from "sonner";
 import Login from "@/pages/Login";
 import ChatMessage from "@/components/ChatMessage";
-import syscoLogo from "@/assets/sysco-logo.png";
+import forgedFiberLogo from "@/assets/forged-fiber-logo.png";
 import {
   getAuthenticatedEmail, setAuthenticatedEmail, clearAuthenticatedEmail,
   isLoginReportAdmin,
@@ -37,7 +37,7 @@ const AgenticDesktop = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState<string | null>(() => getAuthenticatedEmail());
   const [now, setNow] = useState<Date>(new Date());
-  const [activeAgentId, setActiveAgentId] = useState<string>("reorder");
+  const [activeAgentId, setActiveAgentId] = useState<string>("networkOps");
 
   // chat
   const [messages, setMessages] = useState<Msg[]>([]);
@@ -88,30 +88,29 @@ const AgenticDesktop = () => {
   }
 
   const kpis = [
-    { l: "Autonomous Resolutions · 24h", v: "12,840", d: "▲ 18%", tone: "ok" as const, icon: CheckCircle2 },
+    { l: "Autonomous Resolutions · 24h", v: "8,420", d: "▲ 18%", tone: "ok" as const, icon: CheckCircle2 },
     { l: "HITL Approvals", v: "184", d: "12 pending", tone: "warn" as const, icon: ShieldCheck },
-    { l: "Avg Cycle Time", v: "38s", d: "▼ 2m 14s", tone: "ok" as const, icon: Activity },
-    { l: "Cost-to-Serve Saved · QTD", v: "$8.4M", d: "▲ $1.2M", tone: "ok" as const, icon: TrendingUp },
+    { l: "Avg MTTR", v: "28m", d: "▼ 6m", tone: "ok" as const, icon: Activity },
+    { l: "Cost-to-Serve Saved · QTD", v: "$4.2M", d: "▲ $0.8M", tone: "ok" as const, icon: TrendingUp },
     { l: "Guardrail Interventions", v: "23", d: "▼ 9", tone: "warn" as const, icon: AlertTriangle },
     { l: "Agent Trust Score", v: "94.2", d: "+1.6 pts", tone: "ok" as const, icon: Star },
   ];
 
   const liveFeed = [
-    { i: CheckCircle2, tone: "ok", t: "Auto-issued $420 credit · CASE-44291", w: "Bluebird Diner · Damaged poultry · Policy KB-204", a: "Credit & Returns Agent · auto", time: "2s ago" },
-    { i: CheckCircle2, tone: "ok", t: "Reorder pushed to 184 standing-PO accounts", w: "Northeast region · Tue delivery cycle", a: "Reorder Agent · batch", time: "14s ago" },
-    { i: AlertTriangle, tone: "warn", t: "Approval required: plan upgrade $14,200/mo", w: "Cheesecake Factory NE · OPP-7821 · Negotiate", a: "Sales Coach Agent · governed", time: "38s ago" },
-    { i: CheckCircle2, tone: "ok", t: "ETA inquiry resolved in 28s · Truck #847", w: "Service Agent answered 1,284 ETA calls today", a: "Sysco Service Agent · auto", time: "1m ago" },
-    { i: AlertTriangle, tone: "danger", t: "Sentiment drop · Aiko Tanaka voice call", w: "Frustration rising — supervisor barge suggested", a: "Agent Assist · monitor", time: "2m ago" },
-    { i: CheckCircle2, tone: "ok", t: "Menu Advisor proposed 6 winter substitutions", w: "1,840 menus protected from cost spike", a: "Menu Advisor · proactive", time: "3m ago" },
+    { i: CheckCircle2, tone: "ok", t: "Auto-issued SLA credit — CASE-44291", w: "PulseNet ISP · 14-min outage · Policy KB-0612", a: "Network Operations Agent · auto", time: "2s ago" },
+    { i: CheckCircle2, tone: "ok", t: "Capacity upgrade quote pushed to 184 wholesale partners", w: "Midwest + Southeast regions · 100G wave promo", a: "Wholesale Partner Support Agent · batch", time: "14s ago" },
+    { i: AlertTriangle, tone: "warn", t: "Approval required: route-diversity upgrade $14,200/mo", w: "Summit Data Centers · OPP-7821 · Negotiate", a: "Sales Coach Agent · governed", time: "38s ago" },
+    { i: CheckCircle2, tone: "ok", t: "Provisioning ETA inquiry resolved in 28s · Circuit #847", w: "Partner Support Agent answered 1,284 status requests today", a: "Wholesale Partner Support Agent · auto", time: "1m ago" },
+    { i: AlertTriangle, tone: "danger", t: "Sentiment drop — NorthStar Regional ISP voice call", w: "Frustration rising — supervisor barge suggested", a: "Agent Assist · monitor", time: "2m ago" },
+    { i: CheckCircle2, tone: "ok", t: "Fiber Enablement qualified 6 municipal sites", w: "4 auto-scheduled for site survey this week", a: "Fiber Enablement Agent · proactive", time: "3m ago" },
     { i: CheckCircle2, tone: "ok", t: "Auto-summarized 142 case wraps", w: "Avg saved: 47s / case", a: "Agentforce · batch", time: "4m ago" },
   ];
 
   const queues = [
-    { name: "Service Agent · Voice + Chat", inflight: 348, queued: 12, sla: 94, icon: Headphones, tone: "ok" as const },
-    { name: "Reorder Agent · Standing POs", inflight: 184, queued: 2, sla: 99, icon: RefreshCw, tone: "ok" as const },
-    { name: "Credit & Returns Agent", inflight: 62, queued: 8, sla: 88, icon: Receipt, tone: "ok" as const },
-    { name: "Sales Coach · At-risk", inflight: 84, queued: 12, sla: 76, icon: Briefcase, tone: "warn" as const },
-    { name: "Menu Advisor · Proactive", inflight: 1840, queued: 0, sla: 100, icon: Utensils, tone: "ok" as const },
+    { name: "Network Operations Agent", inflight: 348, queued: 12, sla: 94, icon: Server, tone: "ok" as const },
+    { name: "Wholesale Partner Support Agent", inflight: 184, queued: 2, sla: 99, icon: Handshake, tone: "ok" as const },
+    { name: "Sales Coach Agent", inflight: 84, queued: 12, sla: 76, icon: Briefcase, tone: "warn" as const },
+    { name: "Fiber Enablement Agent", inflight: 2160, queued: 0, sla: 100, icon: Plug, tone: "ok" as const },
     { name: "Agent Assist · Live Cases", inflight: 142, queued: 0, sla: 91, icon: Bot, tone: "ok" as const },
   ];
 
@@ -119,20 +118,18 @@ const AgenticDesktop = () => {
     { ch: "Voice", vals: [82, 64, 38, 12, 90], icon: Phone },
     { ch: "Chat", vals: [70, 88, 55, 30, 44], icon: MessageSquare },
     { ch: "Email", vals: [22, 41, 60, 18, 28], icon: Mail },
-    { ch: "Mobile App", vals: [66, 72, 48, 22, 38], icon: ShoppingCart },
+    { ch: "Partner Portal", vals: [66, 72, 48, 22, 38], icon: Cable },
   ];
-  const qNames = ["ETA", "Credits", "Reorder", "Quality", "Sales"];
+  const qNames = ["Status", "Billing", "Provisioning", "Performance", "Sales"];
   const heatColor = (v: number) =>
     v > 75 ? "hsl(var(--destructive))" : v > 50 ? "hsl(var(--warning))" : v > 25 ? "hsl(var(--primary))" : "hsl(var(--muted))";
 
 
   const suggestedPrompts: Record<string, string[]> = {
-    service: ["What's driving today's deflection rate?", "Summarize open P1 cases", "Draft a reply for late-delivery complaints"],
-    agentAssist: ["Suggest next best action for the Aiko Tanaka call", "Where is AI-assist acceptance lowest?", "Coaching nudge for Tier-2 escalations"],
-    salesCoach: ["Show top 12 at-risk accounts", "Meeting brief for Cheesecake Factory NE", "Win-likelihood drivers this quarter"],
-    reorder: ["Which accounts skipped their standing PO this week?", "Project incremental revenue if I roll out to 1,800 independents", "Auto-reorder exceptions today"],
-    menuAdvisor: ["Q1 menu substitutions for produce cost spike", "Margin lift from winter root program", "Accounts most exposed to citrus pricing"],
-    creditReturns: ["Credit memos auto-resolved in last 24h", "Cases pending photo evidence", "Impact of raising auto-credit ceiling to $1,000"],
+    networkOps: ["What's the current backbone health across all regions?", "Summarize open P1 network outages", "Which circuits are at risk of SLA breach in the next 2 hours?"],
+    salesCoach: ["Show top 12 at-risk partner accounts", "Meeting brief for Summit Data Centers", "Win-likelihood drivers this quarter"],
+    partnerSupport: ["Which partners have open capacity-upgrade quotes?", "Deflection rate by channel today", "Onboarding status for CloudBridge ISP"],
+    fiberEnablement: ["How many eligibility checks completed this week?", "Top 5 municipal opportunities by pipeline", "Site-survey scheduling backlog"],
   };
 
   return (
@@ -140,13 +137,13 @@ const AgenticDesktop = () => {
       {/* ============ HEADER (matches consoles) ============ */}
       <header className="bg-[hsl(var(--header-bg))] text-[hsl(var(--header-fg))] h-12 flex items-center px-3 gap-2 relative z-40">
         <div className="h-7 bg-white rounded px-1.5 flex items-center">
-          <img src={syscoLogo} alt="Sysco" className="h-5 w-auto" />
+          <img src={forgedFiberLogo} alt="Forged Fiber 37" className="h-5 w-auto" />
         </div>
         <div className="flex items-center gap-1.5 ml-1">
           <div className="size-6 rounded flex items-center justify-center bg-accent/30">
             <Sparkles className="size-3.5" />
           </div>
-          <span className="font-semibold text-[15px] tracking-tight">Sysco Agentic Desktop</span>
+          <span className="font-semibold text-[15px] tracking-tight">Forged Fiber 37 Agentic Desktop</span>
         </div>
 
         <div className="flex-1 max-w-[640px] mx-4">
@@ -180,7 +177,7 @@ const AgenticDesktop = () => {
       {/* ============ STATUS STRIP ============ */}
       <div className="bg-card border-b border-border h-11 flex items-center px-3 gap-2">
         <Pill tone="ok"><span className="size-2 rounded-full bg-success animate-pulse" /> Agentforce live</Pill>
-        <Pill tone="brand">6 agents · 24 workers</Pill>
+        <Pill tone="brand">4 agents · 24 workers</Pill>
         <Pill>Trust Layer enforced</Pill>
         <span className="ml-auto text-[12px] text-muted-foreground">{now.toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" })}</span>
       </div>
@@ -257,7 +254,7 @@ const AgenticDesktop = () => {
               </div>
               <div className="rounded border border-border bg-secondary/40 p-3">
                 <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold flex items-center gap-1"><BookOpen className="size-3" /> Grounding</div>
-                <div className="text-[13px] mt-1 leading-snug text-foreground">Data Cloud + Sysco KB + SAP order graph</div>
+                <div className="text-[13px] mt-1 leading-snug text-foreground">Data Cloud + OSS/BSS + Partner Portal + GIS</div>
               </div>
             </div>
 
@@ -345,11 +342,11 @@ const AgenticDesktop = () => {
             </div>
             <div className="space-y-1 text-[12.5px]">
               {[
-                ["Issue credit ≤ $500", "ok", "auto"],
-                ["Dispatch make-good order", "ok", "auto"],
-                ["Plan upgrade > $10k/mo", "warn", "approval"],
-                ["Cancel account", "danger", "supervisor"],
-                ["PII export / data share", "danger", "DPO sign-off"],
+                ["Issue SLA credit ≤ $500", "ok", "auto"],
+                ["Dispatch emergency reroute", "ok", "auto"],
+                ["Contract amendment > $10k/mo", "warn", "approval"],
+                ["Cancel partner contract", "danger", "supervisor"],
+                ["Export network topology / PII", "danger", "CISO sign-off"],
               ].map(([k, tone, v]) => (
                 <div key={k as string} className="flex items-center justify-between rounded border border-border bg-secondary/30 px-2.5 py-2">
                   <span className="text-foreground">{k}</span>
@@ -408,10 +405,10 @@ const AgenticDesktop = () => {
           </div>
           <div className="mt-3 grid grid-cols-2 gap-2">
             {[
-              { t: "Late delivery · SE storm", d: "up", icon: Truck },
-              { t: "Reorder accept ▲", d: "up", icon: RefreshCw },
-              { t: "Quality complaints", d: "down", icon: AlertTriangle },
-              { t: "Menu cost spike Q1", d: "up", icon: Utensils },
+              { t: "Storm-related outage · Southeast", d: "up", icon: Server },
+              { t: "Provisioning acceptance ▲", d: "up", icon: RefreshCw },
+              { t: "Performance complaints", d: "down", icon: AlertTriangle },
+              { t: "Fiber enablement surge Q1", d: "up", icon: Plug },
             ].map((c) => (
               <div key={c.t} className="rounded border border-border bg-secondary/30 px-2.5 py-2 flex items-center gap-2 text-[12px]">
                 <c.icon className="size-3.5 text-muted-foreground" />
