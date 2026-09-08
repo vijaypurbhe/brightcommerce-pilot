@@ -41,6 +41,7 @@ const AgenticDesktop = () => {
   const [activeAgentId, setActiveAgentId] = useState<string>("networkOps");
   const [dockOpen, setDockOpen] = useState(false);
   const [dockAgentId, setDockAgentId] = useState<string>("networkOps");
+  const [promptFilter, setPromptFilter] = useState<string>("all");
 
   // chat
   const [messages, setMessages] = useState<Msg[]>([]);
@@ -276,19 +277,52 @@ const AgenticDesktop = () => {
             <div className="slds-card-header">
               <h2 className="text-[14px] font-semibold text-foreground flex items-center gap-1.5">
                 <Sparkles className="w-4 h-4 text-primary" />
-                Conversation with {agent.name}
+                AI Command Center
               </h2>
-              {streaming && <Pill tone="brand">Thinking…</Pill>}
+              <div className="flex items-center gap-2">
+                <Pill tone="brand">Routing to {agent.name}</Pill>
+                {streaming && <Pill tone="warn">Thinking…</Pill>}
+              </div>
+            </div>
+            <div className="px-3 pt-2.5 flex flex-wrap gap-1.5 border-b border-border pb-2.5">
+              <button
+                onClick={() => setPromptFilter("all")}
+                className={`text-[11.5px] px-2.5 py-1 rounded-full border transition ${promptFilter === "all" ? "bg-primary/10 border-primary/40 text-primary font-semibold" : "border-border text-muted-foreground hover:bg-secondary"}`}>
+                All agents
+              </button>
+              {agents.map((a) => (
+                <button key={a.id}
+                  onClick={() => setPromptFilter(a.id)}
+                  className={`text-[11.5px] px-2.5 py-1 rounded-full border transition inline-flex items-center gap-1 ${promptFilter === a.id ? "bg-primary/10 border-primary/40 text-primary font-semibold" : "border-border text-muted-foreground hover:bg-secondary"}`}>
+                  <span>{a.icon}</span> {a.name}
+                </button>
+              ))}
             </div>
             <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 min-h-0">
               {messages.length === 0 && (
-                <div className="text-center text-muted-foreground text-[13px] py-8">
-                  <Bot className="w-8 h-8 mx-auto mb-3 text-primary" />
-                  Ask {agent.name} about its work, recommendations, or impact.
-                  <div className="mt-4 flex flex-col gap-2 max-w-[480px] mx-auto">
-                    {(suggestedPrompts[activeAgentId] ?? []).map((q) => (
-                      <button key={q} onClick={() => send(q)} className="text-left text-[12.5px] px-3 py-2 rounded border border-border hover:bg-secondary">{q}</button>
-                    ))}
+                <div className="text-muted-foreground text-[13px] py-4">
+                  <div className="text-center">
+                    <Bot className="w-8 h-8 mx-auto mb-2 text-primary" />
+                    One command center for every Forged Fiber agent — pick a starter question or type your own.
+                  </div>
+                  <div className="mt-4 space-y-3 max-w-[560px] mx-auto">
+                    {agents
+                      .filter((a) => promptFilter === "all" || a.id === promptFilter)
+                      .map((a) => (
+                        <div key={a.id}>
+                          <div className="flex items-center gap-1.5 text-[10.5px] font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">
+                            <span className="text-[13px]">{a.icon}</span> {a.name}
+                          </div>
+                          <div className="flex flex-col gap-1.5">
+                            {(suggestedPrompts[a.id] ?? []).map((q) => (
+                              <button key={q} onClick={() => send(q, a.id)}
+                                className="text-left text-[12.5px] px-3 py-2 rounded border border-border hover:bg-secondary hover:border-primary/40 text-foreground transition">
+                                {q}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
                   </div>
                 </div>
               )}
@@ -302,7 +336,7 @@ const AgenticDesktop = () => {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && onSend()}
-                  placeholder={`Message ${agent.name}…`}
+                  placeholder={`Ask the AI Command Center — routing to ${agent.name}…`}
                   className="flex-1 h-10 px-4 text-[13.5px] border border-border rounded focus:outline-none focus:ring-1 focus:ring-primary"
                 />
                 <button onClick={onSend} disabled={!input.trim() || streaming} className="slds-button-brand disabled:opacity-50 h-10 px-4">
