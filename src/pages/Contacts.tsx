@@ -13,7 +13,7 @@ const Contacts = () => {
       <div className="slds-card">
         <div className="px-3 py-2 border-b border-border flex items-center gap-3 flex-wrap">
           <div className="flex items-center gap-1 text-[12.5px]">
-            <button className="flex items-center gap-1 font-semibold hover:text-primary">All Foodservice Contacts <ChevronDown className="w-3 h-3" /></button>
+            <button className="flex items-center gap-1 font-semibold hover:text-primary">All Fiber Network Contacts <ChevronDown className="w-3 h-3" /></button>
             <span className="text-muted-foreground">• {rows.length} items</span>
           </div>
           <div className="ml-auto flex items-center gap-1.5">
