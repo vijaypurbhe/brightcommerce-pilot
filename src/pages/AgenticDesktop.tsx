@@ -62,13 +62,16 @@ const AgenticDesktop = () => {
   const initials = (email ?? "").split("@")[0].split(".").map((s) => s[0]?.toUpperCase()).join("").slice(0, 2);
   const isAdmin = isLoginReportAdmin(email);
 
-  const send = async (text: string) => {
-    const next: Msg[] = [...messages, { role: "user", content: text }];
+  const send = async (text: string, routeAgentId?: string) => {
+    const targetAgent = routeAgentId ?? activeAgentId;
+    if (routeAgentId && routeAgentId !== activeAgentId) setActiveAgentId(routeAgentId);
+    const base = routeAgentId && routeAgentId !== activeAgentId ? [] : messages;
+    const next: Msg[] = [...base, { role: "user", content: text }];
     setMessages(next); setStreaming(true);
     let buf = "";
     try {
       await streamChat({
-        messages: next, agentId: activeAgentId,
+        messages: next, agentId: targetAgent,
         onDelta: (d) => {
           buf += d;
           const content = buf;
@@ -85,6 +88,7 @@ const AgenticDesktop = () => {
   };
 
   const onSend = () => { if (!input.trim() || streaming) return; const t = input.trim(); setInput(""); send(t); };
+
 
   if (!email) {
     return <Login onAuthenticated={(e) => { setAuthenticatedEmail(e); setEmail(e); }} />;
