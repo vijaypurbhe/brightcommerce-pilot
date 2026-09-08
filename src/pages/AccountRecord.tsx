@@ -28,14 +28,14 @@ const AccountRecord = () => {
           </>
         }
         fields={[
-          { label: "Type", value: account.segment },
-          { label: "Region", value: account.region },
+          { label: "Type", value: account.type },
+          { label: "Market", value: account.market },
           { label: "Account Owner", value: account.csm },
-          { label: "YTD Spend", value: `$${(account.ytdSpend / 1_000_000).toFixed(2)}M` },
-          { label: "Weekly Spend", value: `$${account.weeklySpend.toLocaleString()}` },
+          { label: "YTD Revenue", value: `$${(account.ytdRevenue / 1_000_000).toFixed(2)}M` },
+          { label: "MRR", value: `$${account.mrr.toLocaleString()}` },
           { label: "Health Score", value: <span className={account.healthScore >= 80 ? "text-success" : account.healthScore >= 65 ? "text-warning" : "text-destructive"}>{account.healthScore} / 100</span> },
           { label: "Churn Risk", value: <span className="capitalize">{account.churnRisk}</span> },
-          { label: "Last Order", value: `${account.lastOrderDays}d ago` },
+          { label: "Last Ticket", value: `${account.lastTicketDays}d ago` },
         ]}
       />
 
@@ -63,12 +63,12 @@ const AccountRecord = () => {
                   { label: "Account Name", value: account.name },
                   { label: "Parent Account", value: "—" },
                   { label: "Account Number", value: account.id },
-                  { label: "Type", value: account.segment },
+                  { label: "Type", value: account.type },
                   { label: "Industry", value: "Telecommunications — Fiber Wholesale" },
-                  { label: "Phone", value: "+1 (212) 555-0140" },
+                  { label: "Phone", value: "+1 (512) 555-0140" },
                   { label: "Website", value: "www.example.com" },
-                  { label: "Billing Address", value: `${account.region}, USA` },
-                  { label: "Annual Revenue", value: `$${(account.ytdSpend * 1.4 / 1_000_000).toFixed(1)}M` },
+                  { label: "Billing Address", value: `${account.market}, USA` },
+                  { label: "Annual Revenue", value: `$${(account.ytdRevenue * 1.4 / 1_000_000).toFixed(1)}M` },
                   { label: "Employees", value: "240" },
                   { label: "Rating", value: account.healthScore >= 80 ? "Hot" : account.healthScore >= 65 ? "Warm" : "Cold" },
                   { label: "Owner", value: account.csm },

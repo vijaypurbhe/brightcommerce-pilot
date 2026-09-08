@@ -172,15 +172,15 @@ const Index = () => {
       <Card title="Top Accounts" className="col-span-12 lg:col-span-6"
         action={<Link to="/accounts" className="text-[11.5px] text-primary hover:underline">View All</Link>}>
         <table className="slds-table">
-          <thead><tr><th>Account</th><th className="text-right">YTD Spend</th><th className="text-right">Health</th></tr></thead>
+          <thead><tr><th>Account</th><th className="text-right">YTD Revenue</th><th className="text-right">Health</th></tr></thead>
           <tbody>
             {topAccounts.slice(0, 6).map((a) => (
               <tr key={a.id} onClick={() => window.location.assign(`/accounts/${a.id}`)}>
                 <td>
                   <span className="text-primary font-medium">{a.name}</span>
-                  <div className="text-[10.5px] text-muted-foreground">{a.segment}</div>
+                  <div className="text-[10.5px] text-muted-foreground">{a.type}</div>
                 </td>
-                <td className="text-right font-mono">${(a.ytdSpend / 1_000_000).toFixed(2)}M</td>
+                <td className="text-right font-mono">${(a.ytdRevenue / 1_000_000).toFixed(2)}M</td>
                 <td className="text-right">
                   <span className={`slds-pill ${a.healthScore >= 80 ? "text-success bg-success/10 border-success/30" : a.healthScore >= 65 ? "text-warning bg-warning/10 border-warning/30" : "text-destructive bg-destructive/10 border-destructive/30"}`}>
                     {a.healthScore}
