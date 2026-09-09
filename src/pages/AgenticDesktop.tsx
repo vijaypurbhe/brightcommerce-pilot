@@ -416,7 +416,7 @@ const AgenticDesktop = () => {
                   <div className="text-[11.5px] text-muted-foreground mt-0.5">{r.w} · <span className="italic">{r.a}</span></div>
                 </div>
                 <span className="text-[11px] text-muted-foreground shrink-0">{r.time}</span>
-                <button className="text-[12px] font-semibold text-primary hover:underline shrink-0">Investigate →</button>
+                <button onClick={() => { setDockAgentId(r.agentId); setDockPrompt(r.prompt); setDockOpen(true); }} className="text-[12px] font-semibold text-primary hover:underline shrink-0">Investigate →</button>
               </div>
             ))}
           </div>
@@ -462,7 +462,7 @@ const AgenticDesktop = () => {
 
       </section>
 
-      <CopilotDock open={dockOpen} onClose={() => setDockOpen(false)} initialAgentId={dockAgentId} />
+      <CopilotDock open={dockOpen} onClose={() => setDockOpen(false)} initialAgentId={dockAgentId} initialPrompt={dockPrompt} />
     </div>
   );
 };
