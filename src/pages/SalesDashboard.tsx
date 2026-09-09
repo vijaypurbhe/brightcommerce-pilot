@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const SalesDashboard = () => {
   const totalPipeline = pipelineByStage.reduce((s, g) => s + g.value, 0);
   const maxRev = Math.max(...revenueChartData.map((r) => r.revenue));
-  const salesKpis = ["Build Pipeline", "Partner NRR", "AI Deflection", "At-Risk ARR"];
+  const salesKpis = ["Contract ARR at Risk", "SLA Compliance", "AI Deflection", "CSAT"];
 
   // Top reps (synthetic)
   const reps = [
