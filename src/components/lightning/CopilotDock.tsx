@@ -66,20 +66,25 @@ const CopilotDock = ({ open, onClose, initialAgentId = "command", initialPrompt 
   const [menu, setMenu] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => { setAgentId(initialAgentId); setMessages([]); }, [initialAgentId, open]);
+  const sendRef = useRef<(text: string, agentOverride?: string) => Promise<void>>();
+  useEffect(() => {
+    setAgentId(initialAgentId);
+    setMessages([]);
+    if (open && initialPrompt) sendRef.current?.(initialPrompt, initialAgentId);
+  }, [initialAgentId, initialPrompt, open]);
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages]);
 
   const label = agentId === "command" ? "Einstein Copilot" : agents.find((a) => a.id === agentId)?.name ?? "Agent";
 
-  const send = async (text: string) => {
-    const next: Msg[] = [...messages, { role: "user", content: text }];
+  const send = async (text: string, agentOverride?: string) => {
+    const next: Msg[] = [{ role: "user", content: text }];
     setMessages(next); setStreaming(true);
     let buf = "";
     try {
       await streamChat({
-        messages: next, agentId,
+        messages: next, agentId: agentOverride ?? agentId,
         onDelta: (d) => {
           buf += d;
           const content = buf;
