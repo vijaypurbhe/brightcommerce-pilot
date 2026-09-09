@@ -6,25 +6,25 @@ import AgentsPanel from "@/components/lightning/AgentsPanel";
 import { topAccounts, opportunities, revenueChartData } from "@/data/mockData";
 
 const tasks = [
-  { id: 1, subject: "Follow up on Summit Data Centers turn-up", due: "Today", related: "Summit Data Centers — Phoenix", priority: "High" },
-  { id: 2, subject: "Prep QBR deck — City of Austin", due: "Today", related: "City of Austin — Smart City Fiber", priority: "High" },
-  { id: 3, subject: "Send ROW timeline to Atlas Multi-Family", due: "Tomorrow", related: "Atlas Multi-Family — Denver Portfolio", priority: "Normal" },
-  { id: 4, subject: "Review at-risk save play — NorthStar Regional ISP", due: "Tomorrow", related: "NorthStar Regional ISP", priority: "High" },
-  { id: 5, subject: "Schedule site survey — Riverwalk Corporate Campus", due: "Dec 12", related: "Riverwalk Corporate Campus", priority: "Normal" },
+  { id: 1, subject: "Confirm site-acceptance test window — Gulf Coast Refining", due: "Today", related: "Gulf Coast Refining — Experion Migration", priority: "High" },
+  { id: 2, subject: "Prep QBR deck — Meridian Logistics", due: "Today", related: "Meridian Logistics — Sortation Upgrade", priority: "High" },
+  { id: 3, subject: "Send service-contract renewal quote to Cascade Distribution", due: "Tomorrow", related: "Cascade Distribution — Scanner Fleet Renewal", priority: "Normal" },
+  { id: 4, subject: "Review at-risk save play — Delta Packaging", due: "Tomorrow", related: "Delta Packaging", priority: "High" },
+  { id: 5, subject: "Schedule detector placement study — Lakeside Utilities", due: "Dec 12", related: "Lakeside Utilities — Gas Detection Expansion", priority: "Normal" },
 ];
 
 const events = [
-  { id: 1, time: "10:30 AM", title: "Discovery call — Riverwalk Corporate Campus", attendees: "D. Chen, K. Pham", duration: "30m" },
-  { id: 2, time: "1:00 PM",  title: "QBR — City of Austin", attendees: "M. Alvarez, J. Lee, R. Costa", duration: "60m" },
-  { id: 3, time: "3:30 PM",  title: "Pricing review — Atlas Multi-Family", attendees: "M. Alvarez", duration: "30m" },
-  { id: 4, time: "4:30 PM",  title: "Sales Coach standup", attendees: "Team Southwest", duration: "15m" },
+  { id: 1, time: "10:30 AM", title: "Discovery call — Harborview Terminals OEM sensor program", attendees: "D. Chen, K. Pham", duration: "30m" },
+  { id: 2, time: "1:00 PM",  title: "QBR — Gulf Coast Refining", attendees: "M. Alvarez, J. Lee, R. Costa", duration: "60m" },
+  { id: 3, time: "3:30 PM",  title: "Pricing review — Cascade Distribution", attendees: "M. Alvarez", duration: "30m" },
+  { id: 4, time: "4:30 PM",  title: "Contact center standup", attendees: "Team Gulf", duration: "15m" },
 ];
 
 const recent = [
-  { id: "ACC-1001", name: "City of Austin — Smart City Fiber", type: "Account" },
-  { id: "OPP-7821", name: "City of Austin Expansion", type: "Opportunity" },
-  { id: "ACC-1003", name: "Atlas Multi-Family — Denver Portfolio", type: "Account" },
-  { id: "OPP-7855", name: "Summit Data Centers — Phoenix", type: "Opportunity" },
+  { id: "ACC-1001", name: "Gulf Coast Refining", type: "Account" },
+  { id: "OPP-7821", name: "Gulf Coast Refining — Experion Migration", type: "Opportunity" },
+  { id: "ACC-1002", name: "Meridian Logistics", type: "Account" },
+  { id: "OPP-7855", name: "Cascade Distribution — Scanner Fleet Renewal", type: "Opportunity" },
 ];
 
 const Index = () => {
@@ -97,9 +97,9 @@ const Index = () => {
       >
         <div className="space-y-2">
           {[
-            { title: "OPP-7855 needs your attention", body: "Summit Data Centers turn-up — route diversity question from network engineering. Respond before EOD.", action: "Open opportunity", to: "/opportunities/OPP-7855" },
+            { title: "OPP-7855 needs your attention", body: "Cascade Distribution scanner renewal — competitive bid on the table. Send the total-cost-of-ownership case before EOD.", action: "Open opportunity", to: "/opportunities/OPP-7855" },
             { title: "Pipeline coverage at 3.2x", body: "Stronger than 2.4x last quarter. 38 deals worth $94M scored as high win-likelihood.", action: "View pipeline", to: "/opportunities" },
-            { title: "NorthStar Regional ISP is at risk", body: "Inactive 11 days and 4 open cases. Save-play queued by Sales Coach.", action: "Review account", to: "/accounts/ACC-1012" },
+            { title: "Delta Packaging is at risk", body: "5 open cases and repeat equipment-down events. Save play queued by the Account Growth Agent.", action: "Review account", to: "/accounts/ACC-1005" },
           ].map((t) => (
             <Link key={t.title} to={t.to} className="block border border-border rounded p-2.5 hover:bg-secondary/40">
               <div className="text-[12.5px] font-semibold text-foreground">{t.title}</div>
