@@ -99,6 +99,7 @@ const CopilotDock = ({ open, onClose, initialAgentId = "command", initialPrompt 
       });
     } catch { setStreaming(false); toast.error("Failed to reach Agentforce"); }
   };
+  sendRef.current = send;
 
   const onSend = () => { if (!input.trim() || streaming) return; const t = input.trim(); setInput(""); send(t); };
 
