@@ -4,7 +4,7 @@ import { Sparkles, Edit } from "lucide-react";
 import { Highlights, Path, RecordTabs, Card, InfoGrid } from "@/components/lightning/Primitives";
 import { opportunities } from "@/data/mockData";
 
-const STAGES = ["Qualification", "Site Survey", "Permitting", "Construction", "Live", "Closed Won"];
+const STAGES = ["Qualification", "Solution Design", "Proposal", "Negotiation", "Commissioning", "Closed Won"];
 
 const OpportunityRecord = () => {
   const { id } = useParams();
@@ -38,7 +38,7 @@ const OpportunityRecord = () => {
         ]}
       />
 
-      <Path stages={stagePath} current={opp.stage === "Closed Lost" ? "Live" : opp.stage} />
+      <Path stages={stagePath} current={opp.stage === "Closed Lost" ? "Negotiation" : opp.stage} />
 
       <div className="grid grid-cols-12 gap-3">
         <div className="col-span-12 xl:col-span-8">
