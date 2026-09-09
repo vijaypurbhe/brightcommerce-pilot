@@ -41,6 +41,7 @@ const AgenticDesktop = () => {
   const [activeAgentId, setActiveAgentId] = useState<string>("techSupport");
   const [dockOpen, setDockOpen] = useState(false);
   const [dockAgentId, setDockAgentId] = useState<string>("techSupport");
+  const [dockPrompt, setDockPrompt] = useState<string | undefined>(undefined);
   const [promptFilter, setPromptFilter] = useState<string>("all");
 
   // chat
@@ -104,13 +105,13 @@ const AgenticDesktop = () => {
   ];
 
   const liveFeed = [
-    { i: CheckCircle2, tone: "ok", t: "Auto-issued service credit — CASE-44291", w: "Delta Packaging · 14-min line stoppage · Policy KB-0612", a: "Order & Warranty Agent · auto", time: "2s ago" },
-    { i: CheckCircle2, tone: "ok", t: "Spares replenishment quote pushed to 184 distributors", w: "Midwest + Southeast regions · scanner battery program", a: "Order & Warranty Agent · batch", time: "14s ago" },
-    { i: AlertTriangle, tone: "warn", t: "Approval required: uptime SLA credit $14,200", w: "Gulf Coast Refining · OPP-7821 · Commissioning", a: "Account Growth Agent · governed", time: "38s ago" },
-    { i: CheckCircle2, tone: "ok", t: "Order ETA inquiry resolved in 28s · SO #847213", w: "Order & Warranty Agent answered 1,284 status requests today", a: "Order & Warranty Agent · auto", time: "1m ago" },
-    { i: AlertTriangle, tone: "danger", t: "Sentiment drop — Delta Packaging voice call", w: "Frustration rising — supervisor barge suggested", a: "Agent Assist · monitor", time: "2m ago" },
-    { i: CheckCircle2, tone: "ok", t: "Field Service Agent triaged 6 equipment-down calls", w: "4 auto-dispatched with parts confirmed on the van", a: "Field Service Agent · proactive", time: "3m ago" },
-    { i: CheckCircle2, tone: "ok", t: "Auto-summarized 142 case wraps", w: "Avg saved: 47s / case", a: "Agentforce · batch", time: "4m ago" },
+    { i: CheckCircle2, tone: "ok", t: "Auto-issued service credit — CASE-44291", w: "Delta Packaging · 14-min line stoppage · Policy KB-0612", a: "Order & Warranty Agent · auto", time: "2s ago", agentId: "orderWarranty", prompt: "Investigate CASE-44291 at Delta Packaging: why was the service credit auto-issued, was policy KB-0612 applied correctly, and are there related line-stoppage cases?" },
+    { i: CheckCircle2, tone: "ok", t: "Spares replenishment quote pushed to 184 distributors", w: "Midwest + Southeast regions · scanner battery program", a: "Order & Warranty Agent · batch", time: "14s ago", agentId: "orderWarranty", prompt: "Break down the spares replenishment quote pushed to 184 distributors: scanner battery program scope, expected order value, and which distributors haven't responded." },
+    { i: AlertTriangle, tone: "warn", t: "Approval required: uptime SLA credit $14,200", w: "Gulf Coast Refining · OPP-7821 · Commissioning", a: "Account Growth Agent · governed", time: "38s ago", agentId: "accountGrowth", prompt: "Review the pending $14,200 uptime SLA credit for Gulf Coast Refining (OPP-7821): what triggered it, what's the contract exposure, and should I approve?" },
+    { i: CheckCircle2, tone: "ok", t: "Order ETA inquiry resolved in 28s · SO #847213", w: "Order & Warranty Agent answered 1,284 status requests today", a: "Order & Warranty Agent · auto", time: "1m ago", agentId: "orderWarranty", prompt: "Show me the details of SO #847213 and how today's 1,284 order status requests are trending vs. normal volume." },
+    { i: AlertTriangle, tone: "danger", t: "Sentiment drop — Delta Packaging voice call", w: "Frustration rising — supervisor barge suggested", a: "Agent Assist · monitor", time: "2m ago", agentId: "techSupport", prompt: "A Delta Packaging voice call is showing a sentiment drop with rising frustration. Summarize their open cases, recent downtime history, and recommend the best recovery action." },
+    { i: CheckCircle2, tone: "ok", t: "Field Service Agent triaged 6 equipment-down calls", w: "4 auto-dispatched with parts confirmed on the van", a: "Field Service Agent · proactive", time: "3m ago", agentId: "fieldService", prompt: "Walk me through the 6 equipment-down calls Field Service triaged: sites, fault types, the 4 auto-dispatches, and the 2 still pending." },
+    { i: CheckCircle2, tone: "ok", t: "Auto-summarized 142 case wraps", w: "Avg saved: 47s / case", a: "Agentforce · batch", time: "4m ago", agentId: "command", prompt: "Analyze the 142 auto-summarized case wraps: which categories dominate, any quality flags, and how much handle time was saved overall." },
   ];
 
   const queues = [
@@ -216,7 +217,7 @@ const AgenticDesktop = () => {
           </div>
           <div className="space-y-1.5">
             {agents.map((a) => (
-              <button key={a.id} onClick={() => { setActiveAgentId(a.id); setMessages([]); setDockAgentId(a.id); setDockOpen(true); }}
+              <button key={a.id} onClick={() => { setActiveAgentId(a.id); setMessages([]); setDockAgentId(a.id); setDockPrompt(undefined); setDockOpen(true); }}
                 className={`w-full text-left rounded border p-2.5 transition ${activeAgentId === a.id ? "bg-primary/5 border-primary/40" : "bg-card border-border hover:bg-secondary/60"}`}>
                 <div className="flex items-start gap-2">
                   <div className="size-9 rounded bg-primary/10 flex items-center justify-center text-lg shrink-0">{a.icon}</div>
@@ -415,7 +416,7 @@ const AgenticDesktop = () => {
                   <div className="text-[11.5px] text-muted-foreground mt-0.5">{r.w} · <span className="italic">{r.a}</span></div>
                 </div>
                 <span className="text-[11px] text-muted-foreground shrink-0">{r.time}</span>
-                <button className="text-[12px] font-semibold text-primary hover:underline shrink-0">Investigate →</button>
+                <button onClick={() => { setDockAgentId(r.agentId); setDockPrompt(r.prompt); setDockOpen(true); }} className="text-[12px] font-semibold text-primary hover:underline shrink-0">Investigate →</button>
               </div>
             ))}
           </div>
@@ -461,7 +462,7 @@ const AgenticDesktop = () => {
 
       </section>
 
-      <CopilotDock open={dockOpen} onClose={() => setDockOpen(false)} initialAgentId={dockAgentId} />
+      <CopilotDock open={dockOpen} onClose={() => setDockOpen(false)} initialAgentId={dockAgentId} initialPrompt={dockPrompt} />
     </div>
   );
 };

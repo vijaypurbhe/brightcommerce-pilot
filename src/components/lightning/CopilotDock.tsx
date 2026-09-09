@@ -6,9 +6,9 @@ import ChatMessage from "@/components/ChatMessage";
 import { agents } from "@/data/mockData";
 import { toast } from "sonner";
 
-interface Props { open: boolean; onClose: () => void; initialAgentId?: string; }
+interface Props { open: boolean; onClose: () => void; initialAgentId?: string; initialPrompt?: string; }
 
-const CopilotDock = ({ open, onClose, initialAgentId = "command" }: Props) => {
+const CopilotDock = ({ open, onClose, initialAgentId = "command", initialPrompt }: Props) => {
   const location = useLocation();
   const console_: "sales" | "service" = useMemo(() => {
     const p = location.pathname;
@@ -66,20 +66,25 @@ const CopilotDock = ({ open, onClose, initialAgentId = "command" }: Props) => {
   const [menu, setMenu] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => { setAgentId(initialAgentId); setMessages([]); }, [initialAgentId, open]);
+  const sendRef = useRef<(text: string, agentOverride?: string) => Promise<void>>();
+  useEffect(() => {
+    setAgentId(initialAgentId);
+    setMessages([]);
+    if (open && initialPrompt) sendRef.current?.(initialPrompt, initialAgentId);
+  }, [initialAgentId, initialPrompt, open]);
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages]);
 
   const label = agentId === "command" ? "Einstein Copilot" : agents.find((a) => a.id === agentId)?.name ?? "Agent";
 
-  const send = async (text: string) => {
-    const next: Msg[] = [...messages, { role: "user", content: text }];
+  const send = async (text: string, agentOverride?: string) => {
+    const next: Msg[] = agentOverride ? [{ role: "user", content: text }] : [...messages, { role: "user", content: text }];
     setMessages(next); setStreaming(true);
     let buf = "";
     try {
       await streamChat({
-        messages: next, agentId,
+        messages: next, agentId: agentOverride ?? agentId,
         onDelta: (d) => {
           buf += d;
           const content = buf;
@@ -94,6 +99,7 @@ const CopilotDock = ({ open, onClose, initialAgentId = "command" }: Props) => {
       });
     } catch { setStreaming(false); toast.error("Failed to reach Agentforce"); }
   };
+  sendRef.current = send;
 
   const onSend = () => { if (!input.trim() || streaming) return; const t = input.trim(); setInput(""); send(t); };
 
