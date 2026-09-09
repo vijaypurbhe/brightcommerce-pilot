@@ -4,7 +4,7 @@ import { ChevronDown, LayoutGrid, List as ListIcon, Sparkles } from "lucide-reac
 import { Card } from "@/components/lightning/Primitives";
 import { opportunities, type OpportunityStage } from "@/data/mockData";
 
-const STAGES: OpportunityStage[] = ["Qualification", "Site Survey", "Permitting", "Construction", "Live", "Closed Won", "Closed Lost"];
+const STAGES: OpportunityStage[] = ["Qualification", "Solution Design", "Proposal", "Negotiation", "Commissioning", "Closed Won", "Closed Lost"];
 
 const Opportunities = () => {
   const [view, setView] = useState<"kanban" | "list">("kanban");

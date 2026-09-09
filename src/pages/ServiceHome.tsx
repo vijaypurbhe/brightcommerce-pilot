@@ -75,9 +75,9 @@ const ServiceHome = () => {
       <Card title="Service Alerts" className="col-span-12 xl:col-span-8" action={<AlertTriangle className="w-4 h-4 text-warning" />}>
         <div className="space-y-2">
           {[
-            { t: "P1 — Backbone outage, Region 7 ring", b: "Redundant path holding. Field crew dispatched to splice closure 7-B. ETA to restore: 42 min. NOC lead: T. Nguyen.", to: "/cases/CASE-44188", chip: "P1" },
-            { t: "Storm-related performance degradation — Southeast", b: "18 circuits impacted by weather. Network Operations Agent auto-notifying affected partners and rolling truck rolls.", to: "/cases", chip: "Voice" },
-            { t: "Repeat provisioning delays — NorthStar Regional ISP", b: "2nd missed turn-up this quarter. Sales Coach Agent flagged as churn risk; CSM intervention queued.", to: "/cases/CASE-44158", chip: "P2" },
+            { t: "P1 — Sortation line 4 down, Meridian Logistics", b: "Fault E-118 matched to bulletin SB-2291. Certified technician dispatched with the spare drive. ETA on site: 42 min. Duty manager: T. Nguyen.", to: "/cases", chip: "P1" },
+            { t: "Firmware advisory — rugged mobile computers", b: "18 distributor fleets affected. Technical Support Agent is proactively notifying customers and pushing the remediation article.", to: "/cases", chip: "Voice" },
+            { t: "Repeat equipment-down events — Delta Packaging", b: "3rd unplanned stoppage this quarter. Account Growth Agent flagged renewal risk; CSM intervention queued.", to: "/cases", chip: "P2" },
           ].map((a) => (
             <Link key={a.t} to={a.to} className="block border border-border rounded p-2.5 hover:bg-secondary/40">
               <div className="flex items-center gap-2">
@@ -93,7 +93,7 @@ const ServiceHome = () => {
 
       {/* Service Agents */}
       <div className="col-span-12 xl:col-span-4">
-        <AgentsPanel category="Forged Fiber" title="Forged Fiber Agentforce" />
+        <AgentsPanel category="Honeywell" title="Honeywell Agentforce" />
       </div>
 
       {/* Einstein recommendations */}
@@ -101,15 +101,15 @@ const ServiceHome = () => {
         <div className="space-y-2 text-[12.5px]">
           <div className="p-2 rounded bg-primary/5 border border-primary/20">
             <div className="text-[10.5px] uppercase text-primary font-semibold">Capacity</div>
-            Open Wholesale Partner Support Agent for circuit status and SLA inquiries ≤$10K impact — +$2.8M annual cost-to-serve reduction.
+            Let the Order & Warranty Agent own order status, lead times, and RMA creation under $10K — +$2.8M annual cost-to-serve reduction.
           </div>
           <div className="p-2 rounded bg-accent/5 border border-accent/20">
             <div className="text-[10.5px] uppercase text-accent font-semibold">CSAT</div>
-            Route City of Austin inbound directly to M. Alvarez — 4 open cases and declining CSAT trend.
+            Route Delta Packaging inbound directly to M. Alvarez — 5 open cases and a declining CSAT trend.
           </div>
           <div className="p-2 rounded bg-warning/5 border border-warning/20">
             <div className="text-[10.5px] uppercase text-warning font-semibold">SLA</div>
-            38 cases predicted to breach SLA in next 2 hrs. Pre-assign 4 agents from Tier 2 pool.
+            38 cases predicted to breach SLA in the next 2 hrs. Pre-assign 4 advisors from the Tier 2 pool.
           </div>
         </div>
       </Card>

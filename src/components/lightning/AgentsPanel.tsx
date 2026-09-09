@@ -9,7 +9,7 @@ const statusDot: Record<string, string> = {
 };
 
 interface Props {
-  category?: "Service" | "Sales" | "Forged Fiber" | "All";
+  category?: "Service" | "Sales" | "Honeywell" | "All";
   title?: string;
   onChat?: (agentId: string) => void;
 }

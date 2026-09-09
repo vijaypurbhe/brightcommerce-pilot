@@ -64,7 +64,7 @@ const AccountRecord = () => {
                   { label: "Parent Account", value: "—" },
                   { label: "Account Number", value: account.id },
                   { label: "Type", value: account.type },
-                  { label: "Industry", value: "Telecommunications — Fiber Wholesale" },
+                  { label: "Industry", value: "Industrial Automation — Process & Warehouse" },
                   { label: "Phone", value: "+1 (512) 555-0140" },
                   { label: "Website", value: "www.example.com" },
                   { label: "Billing Address", value: `${account.market}, USA` },
@@ -113,7 +113,7 @@ const AccountRecord = () => {
                   <table className="slds-table">
                     <thead><tr><th>Name</th><th>Title</th><th>Email</th><th>Phone</th></tr></thead>
                     <tbody>
-                      <tr><td><span className="text-primary">Maria Costa</span></td><td>Director of Network Engineering</td><td>maria.costa@austintexas.gov</td><td>(512) 555-0141</td></tr>
+                      <tr><td><span className="text-primary">Maria Costa</span></td><td>Director of Plant Engineering</td><td>maria.costa@gulfcoastrefining.com</td><td>(713) 555-0141</td></tr>
                       <tr><td><span className="text-primary">James Wu</span></td><td>Chief Technology Officer</td><td>j.wu@summitdatacenters.com</td><td>(602) 555-0142</td></tr>
                       <tr><td><span className="text-primary">Linda Park</span></td><td>VP of Development</td><td>l.park@atlasmultifamily.com</td><td>(303) 555-0143</td></tr>
                     </tbody>
@@ -123,8 +123,8 @@ const AccountRecord = () => {
             )}
             {tab === "News" && (
               <div className="p-3 space-y-2 text-[12.5px] text-muted-foreground">
-                <div className="border-l-2 border-primary pl-3"><span className="text-foreground font-medium">Telecom Industry Brief:</span> {account.name.split(" — ")[0]} expands fiber footprint by 12% in Q1.</div>
-                <div className="border-l-2 border-primary pl-3"><span className="text-foreground font-medium">Network World:</span> Open-access wholesale transport demand accelerates across Midwest markets.</div>
+                <div className="border-l-2 border-primary pl-3"><span className="text-foreground font-medium">Industrial Brief:</span> {account.name.split(" — ")[0]} expands automation capital spend by 12% in Q1.</div>
+                <div className="border-l-2 border-primary pl-3"><span className="text-foreground font-medium">Automation World:</span> Connected service contracts accelerate as plants target unplanned-downtime reduction.</div>
               </div>
             )}
           </div>
