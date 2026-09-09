@@ -79,7 +79,7 @@ const CopilotDock = ({ open, onClose, initialAgentId = "command", initialPrompt 
   const label = agentId === "command" ? "Einstein Copilot" : agents.find((a) => a.id === agentId)?.name ?? "Agent";
 
   const send = async (text: string, agentOverride?: string) => {
-    const next: Msg[] = [{ role: "user", content: text }];
+    const next: Msg[] = agentOverride ? [{ role: "user", content: text }] : [...messages, { role: "user", content: text }];
     setMessages(next); setStreaming(true);
     let buf = "";
     try {
