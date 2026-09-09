@@ -33,7 +33,8 @@ const SalesDashboard = () => {
 
       <div className="grid grid-cols-12 gap-3">
         {salesKpis.map((label) => {
-          const k = kpiData.find((x) => x.label === label)!;
+          const k = kpiData.find((x) => x.label === label);
+          if (!k) return null;
           return (
             <div key={label} className="col-span-6 md:col-span-3 slds-card p-3">
               <div className="text-[11px] text-muted-foreground">{k.label}</div>
