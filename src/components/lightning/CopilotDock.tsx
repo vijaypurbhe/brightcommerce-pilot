@@ -6,9 +6,9 @@ import ChatMessage from "@/components/ChatMessage";
 import { agents } from "@/data/mockData";
 import { toast } from "sonner";
 
-interface Props { open: boolean; onClose: () => void; initialAgentId?: string; }
+interface Props { open: boolean; onClose: () => void; initialAgentId?: string; initialPrompt?: string; }
 
-const CopilotDock = ({ open, onClose, initialAgentId = "command" }: Props) => {
+const CopilotDock = ({ open, onClose, initialAgentId = "command", initialPrompt }: Props) => {
   const location = useLocation();
   const console_: "sales" | "service" = useMemo(() => {
     const p = location.pathname;
