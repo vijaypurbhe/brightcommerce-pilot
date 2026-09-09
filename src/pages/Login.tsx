@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, Eye, EyeOff } from "lucide-react";
 import { ALLOWED_DEMO_DOMAIN, appendLoginAuditEntry, isAllowedDemoEmail, normalizeEmail } from "@/lib/demoAccess";
-import forgedFiberLogo from "@/assets/forged-fiber-logo.png";
+import honeywellLogo from "@/assets/honeywell-logo.png";
 
 interface LoginProps {
   onAuthenticated: (email: string) => void;
@@ -29,7 +29,7 @@ const Login = ({ onAuthenticated }: LoginProps) => {
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[hsl(222,28%,8%)] via-[hsl(197,55%,14%)] to-[hsl(222,28%,6%)]" />
 
-      {/* Floating orbs (Forged Fiber 37 blue + orange) */}
+      {/* Floating orbs (Honeywell blue + orange) */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[hsl(197,100%,45%,0.20)] rounded-full blur-[120px] animate-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[hsl(17,100%,45%,0.16)] rounded-full blur-[100px] animate-pulse" style={{ animationDelay: "2s" }} />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[hsl(197,90%,40%,0.10)] rounded-full blur-[140px]" />
@@ -50,10 +50,10 @@ const Login = ({ onAuthenticated }: LoginProps) => {
           <div className="relative">
             <div className="absolute inset-0 bg-[hsl(197,100%,55%,0.5)] rounded-2xl blur-xl" />
             <div className="relative flex items-center justify-center w-20 h-20 rounded-2xl bg-white shadow-lg shadow-[hsl(197,100%,40%,0.35)] overflow-hidden">
-              <img src={forgedFiberLogo} alt="Forged Fiber 37" className="h-12 w-12 object-contain" />
+              <img src={honeywellLogo} alt="Honeywell" className="h-12 w-12 object-contain" />
             </div>
           </div>
-          <h1 className="mt-5 text-3xl font-bold tracking-tight text-white">Forged Fiber 37</h1>
+          <h1 className="mt-5 text-3xl font-bold tracking-tight text-white">Honeywell</h1>
           <p className="mt-2 text-sm text-[hsl(215,20%,65%)]">Sales + Service Cloud powered by Agentforce</p>
         </div>
 

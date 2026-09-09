@@ -7,7 +7,7 @@ import {
 import { Outlet } from "react-router-dom";
 import Login from "@/pages/Login";
 import CopilotDock from "@/components/lightning/CopilotDock";
-import forgedFiberLogo from "@/assets/forged-fiber-logo.png";
+import honeywellLogo from "@/assets/honeywell-logo.png";
 import { getAuthenticatedEmail, setAuthenticatedEmail, clearAuthenticatedEmail, isLoginReportAdmin } from "@/lib/demoAccess";
 
 type AppKey = "sales" | "service";
@@ -16,7 +16,7 @@ interface NavTab { label: string; to: string; }
 
 const APP_TABS: Record<AppKey, { name: string; color: string; tabs: NavTab[] }> = {
   sales: {
-    name: "Forged Fiber 37 Sales Console",
+    name: "Honeywell Sales Console",
     color: "bg-[hsl(var(--primary))]",
     tabs: [
       { label: "Dashboard", to: "/dashboards/sales" },
@@ -28,7 +28,7 @@ const APP_TABS: Record<AppKey, { name: string; color: string; tabs: NavTab[] }> 
     ],
   },
   service: {
-    name: "Forged Fiber 37 Service Console",
+    name: "Honeywell Service Console",
     color: "bg-[hsl(var(--accent))]",
     tabs: [
       { label: "Dashboard", to: "/dashboards/service" },
@@ -41,7 +41,7 @@ const APP_TABS: Record<AppKey, { name: string; color: string; tabs: NavTab[] }> 
   },
 };
 
-const APP_STORAGE_KEY = "forgedfiber37.activeApp";
+const APP_STORAGE_KEY = "honeywell.activeApp";
 
 function deriveApp(pathname: string): AppKey | null {
   if (
@@ -156,7 +156,7 @@ const AppShell = () => {
 
         <Link to="/" className="flex items-center gap-2 pl-1 hover:opacity-90" title="Agentic Desktop">
           <div className="h-7 w-auto bg-white rounded px-1.5 flex items-center">
-            <img src={forgedFiberLogo} alt="Forged Fiber 37" className="h-5 w-auto" />
+            <img src={honeywellLogo} alt="Honeywell" className="h-5 w-auto" />
           </div>
           <span className="font-semibold text-[14px] tracking-tight">{appName}</span>
         </Link>
@@ -165,7 +165,7 @@ const AppShell = () => {
           <div className="relative">
             <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-foreground/50" />
             <input
-              placeholder={`Search Forged Fiber 37 ${app === "sales" ? "Sales" : "Service"}...`}
+              placeholder={`Search Honeywell ${app === "sales" ? "Sales" : "Service"}...`}
               className="w-full h-8 pl-8 pr-3 rounded text-[12.5px] bg-white text-foreground border border-white/30 focus:outline-none focus:ring-2 focus:ring-white/40 placeholder:text-foreground/40"
             />
           </div>
@@ -274,7 +274,7 @@ const AppShell = () => {
         </div>
       )}
 
-      <CopilotDock open={copilotOpen} onClose={() => setCopilotOpen(false)} initialAgentId={app === "service" ? "networkOps" : "salesCoach"} />
+      <CopilotDock open={copilotOpen} onClose={() => setCopilotOpen(false)} initialAgentId={app === "service" ? "techSupport" : "accountGrowth"} />
     </div>
   );
 };

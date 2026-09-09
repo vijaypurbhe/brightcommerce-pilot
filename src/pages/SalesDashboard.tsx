@@ -22,7 +22,7 @@ const SalesDashboard = () => {
       <div className="flex items-center justify-between">
         <div>
           <div className="text-[11px] text-muted-foreground">Dashboard</div>
-          <h1 className="text-[18px] font-bold">Sales Operations — Forged Fiber 37</h1>
+          <h1 className="text-[18px] font-bold">Sales Operations — Honeywell</h1>
         </div>
         <div className="flex gap-1.5">
           <button className="slds-button">Refresh</button>
@@ -136,7 +136,7 @@ const SalesDashboard = () => {
         </Card>
 
         <div className="col-span-12 lg:col-span-4">
-          <AgentsPanel category="Forged Fiber" title="Forged Fiber Agentforce" />
+          <AgentsPanel category="Honeywell" title="Honeywell Agentforce" />
         </div>
 
         <Card title="Top Accounts (YTD)" className="col-span-12 lg:col-span-8">

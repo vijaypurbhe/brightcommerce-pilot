@@ -19,22 +19,22 @@ const CopilotDock = ({ open, onClose, initialAgentId = "command" }: Props) => {
   const [agentId, setAgentId] = useState<string>(initialAgentId);
 
   const agentPrompts: Record<string, string[]> = {
-    networkOps: [
+    techSupport: [
       "What is causing the Region 7 fiber degradation right now?",
       "Show open outages and estimated restoration times",
       "Which routes have the highest packet loss this week?",
     ],
-    salesCoach: [
+    accountGrowth: [
       "Which fiber build opportunities are at risk this quarter?",
       "Coach me on the City of Austin expansion deal",
       "Pipeline forecast vs quota for the Midwest market",
     ],
-    partnerSupport: [
+    orderWarranty: [
       "Summarize wholesale partner cases breaching SLA today",
       "Draft a partner update for the Region 7 outage",
       "Which ISP partners have repeat provisioning issues?",
     ],
-    fiberEnablement: [
+    fieldService: [
       "What is blocking turn-up for the Lakeview MDU build?",
       "Show permits and ROW approvals pending over 30 days",
       "Which circuits are ready for service activation?",

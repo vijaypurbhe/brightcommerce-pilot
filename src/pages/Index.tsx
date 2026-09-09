@@ -194,7 +194,7 @@ const Index = () => {
 
       {/* Sales Agentforce */}
       <div className="col-span-12 lg:col-span-6">
-        <AgentsPanel category="Forged Fiber" title="Forged Fiber Agentforce" />
+        <AgentsPanel category="Honeywell" title="Honeywell Agentforce" />
       </div>
     </div>
   );

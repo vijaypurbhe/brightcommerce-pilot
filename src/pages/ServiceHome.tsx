@@ -76,8 +76,8 @@ const ServiceHome = () => {
         <div className="space-y-2">
           {[
             { t: "P1 — Backbone outage, Region 7 ring", b: "Redundant path holding. Field crew dispatched to splice closure 7-B. ETA to restore: 42 min. NOC lead: T. Nguyen.", to: "/cases/CASE-44188", chip: "P1" },
-            { t: "Storm-related performance degradation — Southeast", b: "18 circuits impacted by weather. Network Operations Agent auto-notifying affected partners and rolling truck rolls.", to: "/cases", chip: "Voice" },
-            { t: "Repeat provisioning delays — NorthStar Regional ISP", b: "2nd missed turn-up this quarter. Sales Coach Agent flagged as churn risk; CSM intervention queued.", to: "/cases/CASE-44158", chip: "P2" },
+            { t: "Storm-related performance degradation — Southeast", b: "18 circuits impacted by weather. Technical Support Agent auto-notifying affected partners and rolling truck rolls.", to: "/cases", chip: "Voice" },
+            { t: "Repeat provisioning delays — NorthStar Regional ISP", b: "2nd missed turn-up this quarter. Account Growth Agent flagged as churn risk; CSM intervention queued.", to: "/cases/CASE-44158", chip: "P2" },
           ].map((a) => (
             <Link key={a.t} to={a.to} className="block border border-border rounded p-2.5 hover:bg-secondary/40">
               <div className="flex items-center gap-2">
@@ -93,7 +93,7 @@ const ServiceHome = () => {
 
       {/* Service Agents */}
       <div className="col-span-12 xl:col-span-4">
-        <AgentsPanel category="Forged Fiber" title="Forged Fiber Agentforce" />
+        <AgentsPanel category="Honeywell" title="Honeywell Agentforce" />
       </div>
 
       {/* Einstein recommendations */}
@@ -101,7 +101,7 @@ const ServiceHome = () => {
         <div className="space-y-2 text-[12.5px]">
           <div className="p-2 rounded bg-primary/5 border border-primary/20">
             <div className="text-[10.5px] uppercase text-primary font-semibold">Capacity</div>
-            Open Wholesale Partner Support Agent for circuit status and SLA inquiries ≤$10K impact — +$2.8M annual cost-to-serve reduction.
+            Open Order & Warranty Agent for circuit status and SLA inquiries ≤$10K impact — +$2.8M annual cost-to-serve reduction.
           </div>
           <div className="p-2 rounded bg-accent/5 border border-accent/20">
             <div className="text-[10.5px] uppercase text-accent font-semibold">CSAT</div>

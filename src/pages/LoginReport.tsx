@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { LogOut, FileText } from "lucide-react";
 import { getLoginAuditLog, type LoginAuditEntry, clearAuthenticatedEmail, getAuthenticatedEmail } from "@/lib/demoAccess";
-import forgedFiberLogo from "@/assets/forged-fiber-logo.png";
+import honeywellLogo from "@/assets/honeywell-logo.png";
 
 const LoginReport = () => {
   const [entries, setEntries] = useState<LoginAuditEntry[]>([]);
@@ -14,10 +14,10 @@ const LoginReport = () => {
       <div className="max-w-5xl mx-auto">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
-            <img src={forgedFiberLogo} alt="Forged Fiber 37" className="h-12 w-auto object-contain" />
+            <img src={honeywellLogo} alt="Honeywell" className="h-12 w-auto object-contain" />
             <div>
               <h1 className="text-[18px] font-bold text-foreground">Login Audit Report</h1>
-              <p className="text-[12px] text-muted-foreground">Forged Fiber 37 demo access log</p>
+              <p className="text-[12px] text-muted-foreground">Honeywell demo access log</p>
             </div>
           </div>
           <button
