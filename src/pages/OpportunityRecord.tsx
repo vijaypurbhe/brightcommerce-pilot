@@ -72,7 +72,7 @@ const OpportunityRecord = () => {
                   { label: "Close Date", value: opp.closeDate },
                   { label: "Stage", value: opp.stage },
                   { label: "Next Step", value: opp.nba },
-                  { label: "Forecast Category", value: opp.stage === "Live" ? "Commit" : "Pipeline" },
+                  { label: "Forecast Category", value: opp.stage === "Commissioning" || opp.stage === "Closed Won" ? "Commit" : "Pipeline" },
                   { label: "Owner", value: opp.owner },
                 ]} />
               </div>
