@@ -110,7 +110,7 @@ const CaseRecord = ({ overrideId }: { overrideId?: string }) => {
             <div className="space-y-2 text-[12.5px]">
               {[
                 "Confirm truck #847 revised ETA and enroll customer in proactive SMS updates.",
-                "Offer 5% credit on the affected line and dispatch redelivery for tomorrow AM.",
+                "Offer an advance exchange on the failed unit and dispatch a certified technician tomorrow AM.",
                 "Loop in territory CSM if this is a repeat issue in the last 30 days.",
               ].map((r, i) => (
                 <div key={i} className="p-2 rounded border border-border hover:border-primary/40 cursor-pointer">

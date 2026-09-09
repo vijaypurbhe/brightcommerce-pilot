@@ -104,12 +104,12 @@ const AgenticDesktop = () => {
   ];
 
   const liveFeed = [
-    { i: CheckCircle2, tone: "ok", t: "Auto-issued SLA credit — CASE-44291", w: "PulseNet ISP · 14-min outage · Policy KB-0612", a: "Technical Support Agent · auto", time: "2s ago" },
-    { i: CheckCircle2, tone: "ok", t: "Capacity upgrade quote pushed to 184 wholesale partners", w: "Midwest + Southeast regions · 100G wave promo", a: "Order & Warranty Agent · batch", time: "14s ago" },
-    { i: AlertTriangle, tone: "warn", t: "Approval required: route-diversity upgrade $14,200/mo", w: "Summit Data Centers · OPP-7821 · Negotiate", a: "Account Growth Agent · governed", time: "38s ago" },
-    { i: CheckCircle2, tone: "ok", t: "Provisioning ETA inquiry resolved in 28s · Circuit #847", w: "Partner Support Agent answered 1,284 status requests today", a: "Order & Warranty Agent · auto", time: "1m ago" },
-    { i: AlertTriangle, tone: "danger", t: "Sentiment drop — NorthStar Regional ISP voice call", w: "Frustration rising — supervisor barge suggested", a: "Agent Assist · monitor", time: "2m ago" },
-    { i: CheckCircle2, tone: "ok", t: "Fiber Enablement qualified 6 municipal sites", w: "4 auto-scheduled for site survey this week", a: "Field Service Agent · proactive", time: "3m ago" },
+    { i: CheckCircle2, tone: "ok", t: "Auto-issued service credit — CASE-44291", w: "Delta Packaging · 14-min line stoppage · Policy KB-0612", a: "Order & Warranty Agent · auto", time: "2s ago" },
+    { i: CheckCircle2, tone: "ok", t: "Spares replenishment quote pushed to 184 distributors", w: "Midwest + Southeast regions · scanner battery program", a: "Order & Warranty Agent · batch", time: "14s ago" },
+    { i: AlertTriangle, tone: "warn", t: "Approval required: uptime SLA credit $14,200", w: "Gulf Coast Refining · OPP-7821 · Commissioning", a: "Account Growth Agent · governed", time: "38s ago" },
+    { i: CheckCircle2, tone: "ok", t: "Order ETA inquiry resolved in 28s · SO #847213", w: "Order & Warranty Agent answered 1,284 status requests today", a: "Order & Warranty Agent · auto", time: "1m ago" },
+    { i: AlertTriangle, tone: "danger", t: "Sentiment drop — Delta Packaging voice call", w: "Frustration rising — supervisor barge suggested", a: "Agent Assist · monitor", time: "2m ago" },
+    { i: CheckCircle2, tone: "ok", t: "Field Service Agent triaged 6 equipment-down calls", w: "4 auto-dispatched with parts confirmed on the van", a: "Field Service Agent · proactive", time: "3m ago" },
     { i: CheckCircle2, tone: "ok", t: "Auto-summarized 142 case wraps", w: "Avg saved: 47s / case", a: "Agentforce · batch", time: "4m ago" },
   ];
 
@@ -133,9 +133,9 @@ const AgenticDesktop = () => {
 
 
   const suggestedPrompts: Record<string, string[]> = {
-    techSupport: ["What's the current backbone health across all regions?", "Summarize open P1 network outages", "Which circuits are at risk of SLA breach in the next 2 hours?"],
-    accountGrowth: ["Show top 12 at-risk partner accounts", "Meeting brief for Summit Data Centers", "Win-likelihood drivers this quarter"],
-    orderWarranty: ["Which partners have open capacity-upgrade quotes?", "Deflection rate by channel today", "Onboarding status for CloudBridge ISP"],
+    techSupport: ["Which fault codes are driving the most contacts today?", "Summarize open P1 equipment-down cases", "Which cases are at risk of SLA breach in the next 2 hours?"],
+    accountGrowth: ["Show the top 12 at-risk service contract accounts", "Meeting brief for Gulf Coast Refining", "Win-likelihood drivers this quarter"],
+    orderWarranty: ["Which distributor orders are on backorder?", "Deflection rate by channel today", "Warranty status for serial 8842-VX"],
     fieldService: ["How many eligibility checks completed this week?", "Top 5 municipal opportunities by pipeline", "Site-survey scheduling backlog"],
   };
 
@@ -386,7 +386,7 @@ const AgenticDesktop = () => {
                 ["Dispatch emergency reroute", "ok", "auto"],
                 ["Contract amendment > $10k/mo", "warn", "approval"],
                 ["Cancel partner contract", "danger", "supervisor"],
-                ["Export network topology / PII", "danger", "CISO sign-off"],
+                ["Export installed-base data / PII", "danger", "CISO sign-off"],
               ].map(([k, tone, v]) => (
                 <div key={k as string} className="flex items-center justify-between rounded border border-border bg-secondary/30 px-2.5 py-2">
                   <span className="text-foreground">{k}</span>
@@ -448,7 +448,7 @@ const AgenticDesktop = () => {
               { t: "Storm-related outage · Southeast", d: "up", icon: Server },
               { t: "Provisioning acceptance ▲", d: "up", icon: RefreshCw },
               { t: "Performance complaints", d: "down", icon: AlertTriangle },
-              { t: "Fiber enablement surge Q1", d: "up", icon: Plug },
+              { t: "Service attach surge Q1", d: "up", icon: Plug },
             ].map((c) => (
               <div key={c.t} className="rounded border border-border bg-secondary/30 px-2.5 py-2 flex items-center gap-2 text-[12px]">
                 <c.icon className="size-3.5 text-muted-foreground" />

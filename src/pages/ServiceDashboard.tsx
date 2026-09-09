@@ -19,7 +19,7 @@ const ServiceDashboard = () => {
       <div className="flex items-center justify-between">
         <div>
           <div className="text-[11px] text-muted-foreground">Dashboard</div>
-          <h1 className="text-[18px] font-bold">Service Operations — Honeywell Network Care</h1>
+          <h1 className="text-[18px] font-bold">Service Operations — Honeywell Customer Care</h1>
         </div>
         <div className="flex gap-1.5">
           <button className="slds-button">Refresh</button>

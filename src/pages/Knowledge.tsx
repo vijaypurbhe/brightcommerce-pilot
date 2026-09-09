@@ -3,7 +3,7 @@ import { BookOpen, Search, Star, Plus } from "lucide-react";
 import { Card } from "@/components/lightning/Primitives";
 import { knowledgeArticles } from "@/data/extraData";
 
-const categories = ["All", "Network Operations", "Provisioning & Turn-up", "Permit & ROW", "Partner Billing", "SLA & Performance", "Fiber Enablement", "Account Management"] as const;
+const categories = ["All", "Technical Support", "Field Service", "Order & Delivery", "Warranty / RMA", "Safety & Compliance", "Software & Licensing", "Account Management"] as const;
 
 const Knowledge = () => {
   const [cat, setCat] = useState<typeof categories[number]>("All");

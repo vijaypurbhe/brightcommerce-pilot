@@ -20,28 +20,28 @@ const CopilotDock = ({ open, onClose, initialAgentId = "command" }: Props) => {
 
   const agentPrompts: Record<string, string[]> = {
     techSupport: [
-      "What is causing the Region 7 fiber degradation right now?",
-      "Show open outages and estimated restoration times",
-      "Which routes have the highest packet loss this week?",
+      "What is fault code E-118 on a sortation induct drive?",
+      "Show open equipment-down cases and restoration estimates",
+      "Which product lines drove the most tier-1 contacts this week?",
     ],
     accountGrowth: [
-      "Which fiber build opportunities are at risk this quarter?",
-      "Coach me on the City of Austin expansion deal",
-      "Pipeline forecast vs quota for the Midwest market",
+      "Which service contract renewals are at risk this quarter?",
+      "Coach me on the Gulf Coast Refining Experion migration",
+      "Pipeline forecast vs quota for the process plant segment",
     ],
     orderWarranty: [
-      "Summarize wholesale partner cases breaching SLA today",
-      "Draft a partner update for the Region 7 outage",
-      "Which ISP partners have repeat provisioning issues?",
+      "Where is the Cascade Distribution scanner order right now?",
+      "Is serial 8842-VX still under warranty, and can you open an RMA?",
+      "Which distributor orders are on backorder past their promise date?",
     ],
     fieldService: [
-      "What is blocking turn-up for the Lakeview MDU build?",
-      "Show permits and ROW approvals pending over 30 days",
-      "Which circuits are ready for service activation?",
+      "Dispatch a certified technician for the Meridian line 4 outage",
+      "Which parts are on the van for a gas detector calibration call?",
+      "Show today's first-time-fix rate by region",
     ],
     command: [
-      "Give me a cross-domain health snapshot of the network business",
-      "Where is revenue exposed by network performance risk?",
+      "Give me a cross-domain snapshot of contact center performance",
+      "Where is service contract revenue exposed by repeat downtime?",
       "What should my team focus on today?",
     ],
   };
@@ -51,13 +51,13 @@ const CopilotDock = ({ open, onClose, initialAgentId = "command" }: Props) => {
     (console_ === "service"
       ? [
           "Summarize cases breaching SLA in the next 2 hours",
-          "Draft a partner reply for the Region 7 outage",
-          "Which accounts have repeat performance incidents this week?",
+          "Draft a customer reply for the Meridian line 4 outage",
+          "Which accounts have repeat equipment-down events this week?",
         ]
       : [
-          "Show my top at-risk partner accounts this quarter",
-          "Pipeline forecast vs quota for the Midwest region",
-          "Suggest next best action for City of Austin expansion",
+          "Show my top at-risk service contract accounts this quarter",
+          "Pipeline forecast vs quota for warehouse automation",
+          "Suggest the next best action for Gulf Coast Refining",
         ]);
 
   const [messages, setMessages] = useState<Msg[]>([]);
@@ -129,7 +129,7 @@ const CopilotDock = ({ open, onClose, initialAgentId = "command" }: Props) => {
         {messages.length === 0 && (
           <div className="text-center text-muted-foreground text-[13px] py-8">
             <Bot className="w-8 h-8 mx-auto mb-3 text-primary" />
-            Hi — I'm {label}. Ask anything about your accounts, opportunities, cases, or network operations.
+            Hi — I'm {label}. Ask anything about your accounts, opportunities, cases, or service operations.
             <div className="mt-4 flex flex-col gap-2 max-w-[280px] mx-auto">
               {contextualPrompts.map((q) => (
                 <button key={q} onClick={() => send(q)} className="text-left text-[12.5px] px-3 py-2 rounded border border-border hover:bg-secondary">{q}</button>
