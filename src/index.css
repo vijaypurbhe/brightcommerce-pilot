@@ -2,94 +2,96 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Forged Fiber 37 — Salesforce Lightning theme */
+/* Honeywell Industrial Automation — Salesforce Lightning theme */
 @layer base {
   :root {
-    --background: 210 20% 98%;          /* #F8F9FA page bg */
-    --foreground: 222 26% 14%;          /* near-black forged steel */
+    --background: 0 0% 98%;             /* light neutral page bg */
+    --foreground: 0 0% 12%;             /* near-black industrial grey */
 
     --card: 0 0% 100%;
-    --card-foreground: 222 26% 14%;
+    --card-foreground: 0 0% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 26% 14%;
+    --popover-foreground: 0 0% 12%;
 
-    /* Forged Fiber 37 — fiber blue primary */
-    --primary: 197 100% 36%;            /* #0077B6 */
+    /* Honeywell red primary */
+    --primary: 4 86% 54%;               /* #EE3124 */
     --primary-foreground: 0 0% 100%;
-    --primary-dark: 197 100% 26%;       /* #00577E */
-    --primary-bg: 197 100% 96%;         /* very light blue tint */
+    --primary-dark: 4 82% 40%;
+    --primary-bg: 4 86% 96%;
 
-    --secondary: 210 20% 94%;
-    --secondary-foreground: 222 26% 25%;
+    --secondary: 0 0% 94%;
+    --secondary-foreground: 0 0% 25%;
 
-    --muted: 210 20% 94%;
-    --muted-foreground: 215 12% 42%;
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 42%;
 
-    /* Forged Fiber 37 — forged orange accent */
-    --accent: 17 100% 60%;               /* #FF6B35 */
+    /* Industrial graphite accent */
+    --accent: 210 12% 28%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 354 75% 42%;         /* #C8102E */
+    --destructive: 4 78% 44%;
     --destructive-foreground: 0 0% 100%;
 
     --warning: 38 92% 50%;             /* amber */
     --warning-foreground: 0 0% 9%;
 
-    --success: 145 55% 33%;
+    --success: 152 52% 32%;
     --success-foreground: 0 0% 100%;
 
-    --border: 210 16% 88%;
-    --input: 210 16% 86%;
-    --ring: 197 100% 36%;
+    --border: 0 0% 88%;
+    --input: 0 0% 86%;
+    --ring: 4 86% 54%;
 
     --radius: 0.25rem;
 
-    --chart-1: 197 100% 36%;
-    --chart-2: 17 100% 60%;
+    --chart-1: 4 86% 54%;
+    --chart-2: 210 12% 32%;
     --chart-3: 38 92% 50%;
-    --chart-4: 222 26% 35%;
-    --chart-5: 354 75% 42%;
+    --chart-4: 200 45% 42%;
+    --chart-5: 152 52% 32%;
 
-    --header-bg: 222 26% 14%;          /* forged-steel dark header */
+    --header-bg: 0 0% 11%;             /* dark graphite header */
     --header-fg: 0 0% 100%;
     --subnav-bg: 0 0% 100%;
-    --subnav-border: 210 16% 88%;
-    --rail-bg: 210 20% 97%;
+    --subnav-border: 0 0% 88%;
+    --rail-bg: 0 0% 97%;
   }
 
+
   .dark {
-    --background: 222 28% 9%;
-    --foreground: 210 20% 96%;
-    --card: 222 28% 13%;
-    --card-foreground: 210 20% 96%;
-    --popover: 222 28% 13%;
-    --popover-foreground: 210 20% 96%;
-    --primary: 197 76% 60%;
+    --background: 0 0% 9%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 13%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 13%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 4 88% 62%;
     --primary-foreground: 0 0% 100%;
-    --primary-dark: 197 100% 45%;
-    --primary-bg: 197 60% 18%;
-    --secondary: 222 20% 20%;
-    --secondary-foreground: 210 20% 92%;
-    --muted: 222 20% 20%;
-    --muted-foreground: 215 12% 65%;
-    --accent: 17 100% 68%;
+    --primary-dark: 4 86% 48%;
+    --primary-bg: 4 40% 18%;
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 92%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 66%;
+    --accent: 210 10% 62%;
     --accent-foreground: 0 0% 9%;
-    --destructive: 354 80% 55%;
+    --destructive: 4 82% 58%;
     --destructive-foreground: 0 0% 100%;
     --warning: 38 100% 55%;
     --warning-foreground: 0 0% 9%;
-    --success: 145 49% 50%;
+    --success: 152 48% 48%;
     --success-foreground: 0 0% 100%;
-    --border: 222 20% 24%;
-    --input: 222 20% 24%;
-    --ring: 197 76% 60%;
-    --header-bg: 222 32% 8%;
-    --header-fg: 210 20% 96%;
-    --subnav-bg: 222 28% 13%;
-    --subnav-border: 222 20% 24%;
-    --rail-bg: 222 28% 11%;
+    --border: 0 0% 24%;
+    --input: 0 0% 24%;
+    --ring: 4 88% 62%;
+    --header-bg: 0 0% 7%;
+    --header-fg: 0 0% 96%;
+    --subnav-bg: 0 0% 13%;
+    --subnav-border: 0 0% 24%;
+    --rail-bg: 0 0% 11%;
   }
+
 }
 
 @layer base {
